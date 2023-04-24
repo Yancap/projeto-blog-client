@@ -8,6 +8,7 @@ export const Article = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25), 2px 2px 2px rgba(0, 0, 0, 0.15);
 `
 
 export const Image = styled.div`
