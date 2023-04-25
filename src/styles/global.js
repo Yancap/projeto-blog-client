@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-span:#585788;
         --color-text: #383838;
         --color-subtitle: #575757;
-        --black: #000;
+        --black: #1C0013;
         --white: #fff;
         --color-border:#4745B8;
 

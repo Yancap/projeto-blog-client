@@ -43,9 +43,9 @@ export const Content = styled.div`
         margin-bottom: 14px;
         h4{
             font-weight: 700;
-            font-size: 24px;
+            font-size: 28px;
             line-height: 28px;
-            color: var(--color-purple-dark);
+            color: var(--black);
         }
         p{
             font-weight: 400;

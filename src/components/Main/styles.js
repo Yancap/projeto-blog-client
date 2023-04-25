@@ -10,5 +10,6 @@ export const Content = styled.div`
     max-width: 55rem;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 `

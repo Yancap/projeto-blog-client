@@ -39,10 +39,24 @@ export const ContainerPrimary = styled.section`
             padding: 6px;
             li{
                 list-style: none;
-                &::after{
-                    content: 'O';
-                }
             }
         }
+    }
+`
+
+export const ContainerArticles = styled.section`
+    margin-top: 5rem;
+    h2{
+        font-family: 'Tinos';
+        font-weight: 700;
+        font-size: 2.75rem;
+        text-align: center;
+        color:var(--black);
+        margin-bottom: 2rem;
+    }
+    > div{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
     }
 `
