@@ -3,9 +3,9 @@ import { Article, Content, Image } from './styles'
 import { ReactComponent as Comments } from '../../../assets/article/comments.svg'
 import { ReactComponent as Access } from '../../../assets/article/access.svg'
 
-export const ArticleWeek = ({image, title, content, author, date, commentsLength}) => {
+export const ArticleWeek = ({image, title, content, author, date, commentsLength, id}) => {
   return (
-    <Article>
+    <Article data-id={id}>
         <Image>
             <img src={image} alt="article image" />
         </Image>

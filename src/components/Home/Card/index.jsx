@@ -3,9 +3,9 @@ import { Container, Content, Image } from './styles'
 import { ReactComponent as Comments } from '../../../assets/article/comments.svg'
 import { ReactComponent as Access } from '../../../assets/article/access.svg'
 
-export const Card = ({image, title, content, author, date, commentsLength}) => {
+export const Card = ({image, title, content, author, date, commentsLength, id}) => {
   return (
-    <Container>
+    <Container data-id={id}>
         <Image>
             <img src={image} alt={title} />
         </Image>
