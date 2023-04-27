@@ -29,7 +29,7 @@ export const Home = () => {
                         title={article[0].title}
                         content={article[0].subtitle}
                         author={article[0].author}
-                        date={article[0]['created_at']}
+                        date={new Intl.DateTimeFormat('pt-BR').format(new Date(article[0]['created_at']))}
                         commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === article[0].id ? total + 1 : 0, 0) : 0}
                         id={article[0].id}
                     />
@@ -37,26 +37,16 @@ export const Home = () => {
                 <div>
                     <h3>Comentários</h3>
                     <div className='container-comments'>
-                        <li>
-                            <Comments 
-                                author='Nome do Camarada'
-                                date='03/04/2023'
-                                title='Titulo do Comentário'
-                                text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum sem mi, 
-                                ut ullamcorper ligula malesuada auctor. Etiam lobortis libero vitae felis consequat, 
-                                vel pharetra metus pharetra.'
-                            />
-                        </li>
-                        <li>
-                            <Comments 
-                                author='Nome do Camarada'
-                                date='03/04/2023'
-                                title='Titulo do Comentário'
-                                text='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam interdum sem mi, 
-                                ut ullamcorper ligula malesuada auctor. Etiam lobortis libero vitae felis consequat, 
-                                vel pharetra metus pharetra.'
-                            />
-                        </li>
+                        {articleComments?.map(comment => (
+                            <li key={comment.id}>
+                                <Comments 
+                                    author={comment.name}
+                                    date={new Intl.DateTimeFormat('pt-BR').format(new Date(comment['created_at']))}
+                                    title={comment.title}
+                                    text={comment.text}
+                                />
+                            </li>
+                        ))}
                     </div>
                 </div>
         </ContainerPrimary>
@@ -70,7 +60,7 @@ export const Home = () => {
                             title={art.title}
                             content={art.subtitle}
                             author={art.author}
-                            date={art['created_at']}
+                            date={new Intl.DateTimeFormat('pt-BR').format(new Date(art['created_at']))}
                             commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === art.id ? total + 1 : 0, 0) : 0}
                             id={art.id}
                         /> 

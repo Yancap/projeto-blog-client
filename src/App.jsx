@@ -1,3 +1,4 @@
+import { Article } from "./components/Article";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Home } from "./components/Home";
@@ -11,7 +12,8 @@ function App() {
       <GlobalStyle />
       <Header />
       <Main>
-        <Home />
+        {/* <Home /> */}
+        <Article />
       </Main>
       <Footer />
     </>
