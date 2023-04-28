@@ -3,7 +3,7 @@ import { ArticleWeek } from './ArticleWeek'
 import { ContainerArticles, ContainerPrimary } from './styles'
 import { Comments } from './Comments'
 import { Card } from './Card'
-import { getAllComments, getArticlesforHome, getCommentsforArticles } from './Request/requests'
+import { getAllComments, getArticlesforHome, getCommentsforArticles } from '../../request'
 
 export const Home = () => {
   const [article, setArticle] = React.useState(null)

@@ -4,6 +4,7 @@ export const Container = styled.div`
     padding: 0px 1.75rem 1.75rem 1.75rem;
     background: var(--background-article);
     border-top: 14px solid var(--color-border);
+    margin-top: 1rem;
 `
 
 export const LabelLogo = styled.div`
@@ -12,6 +13,13 @@ export const LabelLogo = styled.div`
     background-color: var(--color-border);
     border-radius: 0px 0px 7px 7px;
     margin-bottom: 1.75rem;
+    display: grid;
+    place-items: center;
+    svg{
+        width: 90%;
+        height: auto;
+        margin-bottom: 0.5rem;
+    }
 `
 
 export const Content = styled.div`
@@ -37,5 +45,28 @@ export const Text = styled.div`
         float: left;
         margin-right: 1rem;
         margin-bottom: 1rem;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        img{
+            max-width: 100%;
+            height: auto;
+        }
     }
+    p{
+        color: #383838;
+    }
+    span{
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        font-family: var(--font-title);
+        gap: 4px;
+        color: #7C7ABF;
+        margin-bottom: 1rem;
+        path{
+            fill: var(--color-border);
+        }
+    }
+    
 `

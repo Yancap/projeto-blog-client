@@ -13,7 +13,7 @@ function App() {
       <Header />
       <Main>
         {/* <Home /> */}
-        <Article />
+        <Article id={1}/>
       </Main>
       <Footer />
     </>

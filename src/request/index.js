@@ -17,3 +17,9 @@ export async function getAllComments(){
     const comments = await response.json()
     return comments
 }
+
+export async function getArticles(id){
+    const response =  await fetch(SRC + `articles/show?id=${id}`)
+    const article = await response.json()
+    return article
+}
