@@ -7,7 +7,7 @@ export const Container = styled.header`
 `
 
 export const Content = styled.div`
-    padding: .75rem 3rem;
+    padding: .75rem 0rem;
     max-width: 55rem;
     margin: 0 auto;
     display: flex;

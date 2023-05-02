@@ -4,7 +4,7 @@ export const Container = styled.div`
     padding: 0px 1.75rem 1.75rem 1.75rem;
     background: var(--background-article);
     border-top: 14px solid var(--color-border);
-    margin-top: 1rem;
+    
 `
 
 export const LabelLogo = styled.div`
