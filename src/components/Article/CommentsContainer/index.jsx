@@ -8,12 +8,13 @@ import { Comments } from '../Comments'
 export const CommentsContainer = ({id}) => {
   const [articleComments, setArticleComments] = React.useState(null)
   React.useEffect(() => {
-    const comments = getCommentsforArticles(1)
+    const comments = getCommentsforArticles(id)
+    console.log(comments);
     comments.then(data => setArticleComments(data.comments))
-  },[])
+  },[id])
   return (
     <Container>
-        <div>
+        <div className='comment-logo'>
             <CommentIcon />
             <h2>Comentários ({articleComments?.length})</h2>
         </div>

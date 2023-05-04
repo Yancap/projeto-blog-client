@@ -1,22 +1,28 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-    width: 18rem;
-    max-height: 30rem;
-    height: auto;
-    background-color: var(--background-secondary);
-    border-radius: 6px;
-    overflow: hidden;
-    transition: 0.25s;
-    &:hover{
-        cursor: pointer;
-        transform: scale(1.01);
-        box-shadow:  1px 2px 4px rgba(0, 0, 0, 0.25);
+    & > a {
+        display: flex;
+        flex-direction: column;
+        width: 18rem;
+        max-height: 30rem;
+        height: auto;
+        background-color: var(--background-secondary);
+        border-radius: 6px;
+        overflow: hidden;
+        transition: 0.25s;
     }
+    &:hover{
+            cursor: pointer;
+            transform: scale(1.01);
+            box-shadow:  1px 2px 4px rgba(0, 0, 0, 0.25);
+    }  
 `
 
 export const Image = styled.div`
     width: 100%;
+    height: 12rem;
+    overflow: hidden;
     img{
         width: 100%;
         height: auto;
@@ -42,7 +48,7 @@ export const Content = styled.div`
         margin-bottom: 10px;
         h3{
             font-weight: 700;
-            font-size: 28px;
+            font-size: 24px;
             line-height: 28px;
             color: var(--black);
         }

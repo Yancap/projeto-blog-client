@@ -80,6 +80,10 @@ export const Content = styled.div`
         cursor: pointer;
         opacity: 0.6;
         transition:  0.25s ease-in;
+        > a {
+            display: flex;
+            flex-direction: column;
+        }
         svg{
             margin-top: -6px;
         }

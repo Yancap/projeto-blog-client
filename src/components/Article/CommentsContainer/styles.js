@@ -1,7 +1,21 @@
 import styled from "styled-components"
 
 export const Container = styled.section`
-
+    div.comment-logo{
+        display: flex;
+        gap: 6px;
+        margin-bottom: 1.5rem;
+        svg{
+            width: 3rem;
+            height: auto;
+            path{
+                fill: #282773;
+            }
+        }
+        h2{
+            font-size: 2.25rem;
+        }
+    }
 `
 
 export const Content = styled.div`

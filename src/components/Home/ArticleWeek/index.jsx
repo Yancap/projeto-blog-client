@@ -2,6 +2,7 @@ import React from 'react'
 import { Article, Content, Image } from './styles'
 import { ReactComponent as Comments } from '../../../assets/article/comments.svg'
 import { ReactComponent as Access } from '../../../assets/article/access.svg'
+import { Link } from 'react-router-dom'
 
 export const ArticleWeek = ({image, title, content, author, date, commentsLength, id}) => {
   return (
@@ -25,8 +26,10 @@ export const ArticleWeek = ({image, title, content, author, date, commentsLength
                 </div>
             </div>
             <div className='link'>
-                <a href="">Acessar</a>
-                <Access />
+                <Link to={'article/' + id}>
+                    <a href="">Acessar</a>
+                    <Access />
+                </Link>
             </div>
         </Content>
     </Article>

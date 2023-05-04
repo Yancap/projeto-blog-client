@@ -17,8 +17,6 @@ export const Home = () => {
     articlesComments.then(data => setArticleComments(data.comments))
     allComments.then(data => setComments(data.comments))
   }, [])
-  console.log(article);
-  console.log(comments);
   return (
     <>
         <ContainerPrimary>
@@ -66,15 +64,6 @@ export const Home = () => {
                         /> 
                     )
                 )}
-               
-                <Card 
-                     image='https://s1.static.brasilescola.uol.com.br/be/2022/06/livro-aberto-artigo.jpg'
-                     title='Titulo do Artigo'
-                     content='Sub Titulo do Artigo para exemplo ou um pedaço do texto do artigo para exemplificar, lorem ipsum dolor sit amet'
-                     author='Yan Gabriel'
-                     date='22/11/2023'
-                     commentsLength='12'
-                 /> 
                  
             </div>
             

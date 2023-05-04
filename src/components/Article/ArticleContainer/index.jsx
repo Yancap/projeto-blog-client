@@ -25,7 +25,7 @@ export const ArticleContainer = ({article}) => {
                 <span>
                     <Clock />
                     <strong>
-                        {article['created_at']}
+                        {new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}
                     </strong>
                      - {article.author}
                 </span>

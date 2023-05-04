@@ -1,22 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    padding: 6px;
-    border-left: 1.5px solid;
+    padding: 16px;
+    border-left: 3.5px solid;
 `
 
 export const Info = styled.div`
     display: flex;
-    justify-content: space-between;
-    gap: 8px;
+    gap: 14px;
     margin-bottom: 2px;
     h5, span{
         font-size: 16px;
-        color: var(--background-primary);
         width: auto;
-        font-weight: 300;
+        font-weight: 600;
+        font-family: var(--font-title);
     }
     h5{
+        color: var(--background-primary);
         max-width: 20ch;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -28,13 +28,20 @@ export const Info = styled.div`
         justify-content: space-between;
         margin-right: 8px;
         gap: 6px;
+        span{
+            color: var(--color-purple-dark);
+            opacity: 0.6;
+        }
         &::before{
             content: ' ';
             height: 2px;
-            background: var(--background-primary);
+            background: var(--color-purple-dark);
             width: 2vw;
             margin-right: 4px;
             border-radius: 2px;
+        }
+        path{
+            fill: var(--color-purple-dark);
         }
     }
 `
