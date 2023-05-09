@@ -11,7 +11,7 @@ import { SearchContext } from '../../context/SearchContext'
 import { searchArticleByContent } from '../../request'
 
 export const Header = () => {
-  const {setSearch, search, setResult} = React.useContext(SearchContext)
+  const {setSearch, search, setResult, navigate: nav} = React.useContext(SearchContext)
   const navigate = useNavigate()
   async function handleSubmit(event){
     event.preventDefault()
@@ -25,7 +25,7 @@ export const Header = () => {
   return (
     <Container>
         <Content>
-          <div>
+          <div onClick={() => nav('/')}>
             <Logo />
           </div>
 

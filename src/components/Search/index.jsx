@@ -20,7 +20,9 @@ export const Search = () => {
   function handleChange({currentTarget}){
     setSearch(currentTarget.value)
   }
-  console.log(result[0]);
+  React.useEffect(() =>{
+    setAux(search)
+  }, [])
   return (
     <Container> 
         <ContentSearch>
