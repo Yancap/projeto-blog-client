@@ -4,6 +4,7 @@ export const Container = styled.footer`
     background: var(--background-primary);
     width: 100%;
     padding: 1rem 3rem;
+    height: 5rem;
 `
 
 export const Content = styled.div`

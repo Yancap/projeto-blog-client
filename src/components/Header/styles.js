@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Container = styled.header`
     background: var(--background-primary);
     width: 100%;
-    
+    height: 4.5rem;
 `
 
 export const Content = styled.div`

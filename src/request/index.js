@@ -27,13 +27,17 @@ export async function getArticles(id){
 export async function getAuthor(id){
     const response =  await fetch(SRC + `users/author?id=${id}`)
     const author = await response.json()
-    console.log(author);
     return author
 }
 
 export async function getAuthorArticles(user_id){
     const response =  await fetch(SRC + `articles/show?user_id=${user_id}`)
     const author = await response.json()
-    console.log(author);
     return author
+}
+
+export async function searchArticleByContent(query){
+    const response =  await fetch(SRC + `search?title=${query}`)
+    const article = await response.json()
+    return article
 }
