@@ -4,6 +4,8 @@ import { Header } from "./components/Header";
 import { Home } from "./components/Home";
 import { Main } from "./components/Main";
 import { Search } from "./components/Search";
+import { Login } from "./components/User/Login";
+import { Register } from "./components/User/Register";
 import { ArticleStorage } from "./context/ArticleContext";
 import { SearchStorage } from "./context/SearchContext";
 import { GlobalStyle } from "./styles/global";
@@ -21,6 +23,8 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/search" element={<Search />} />
               <Route path="/article/:id" element={<Article />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
             </Routes>
           </Main>
           <Footer />

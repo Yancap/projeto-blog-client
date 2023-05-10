@@ -41,7 +41,7 @@ export const Header = () => {
                 <SearchIcon />
               </button>
             </form>
-            <div>
+            <div onClick={() => navigate('/login')}>
               <Account />
               <a>LOGIN</a>
             </div>

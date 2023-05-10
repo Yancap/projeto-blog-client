@@ -41,3 +41,15 @@ export async function searchArticleByContent(query){
     const article = await response.json()
     return article
 }
+
+export async function loginRequest(data){
+    const response =  await fetch(SRC + `users/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    const userData = await response.json()
+    return userData
+}
