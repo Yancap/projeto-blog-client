@@ -40,9 +40,7 @@ export const Info = styled.div`
             margin-right: 4px;
             border-radius: 2px;
         }
-        path{
-            fill: var(--color-purple-dark);
-        }
+        
     }
 `
 

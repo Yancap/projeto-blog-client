@@ -4,7 +4,9 @@ export const Container = styled.div`
     background: var(--background-article);
     border-top: 14px solid var(--color-border);
     padding: 8px 0px;
-    
+    @media screen and (max-width: 650px){
+        width: 200px;
+    }
 `
 
 export const Label = styled.div`

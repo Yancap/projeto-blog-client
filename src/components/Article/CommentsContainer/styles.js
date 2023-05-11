@@ -14,6 +14,15 @@ export const Container = styled.section`
         }
         h2{
             font-size: 2.25rem;
+           
+        }
+        @media screen and (max-width: 500px){
+            h2{
+                font-size: 1.75rem;
+            }
+             svg{
+                 width: 2.5rem;
+             }   
         }
     }
 `

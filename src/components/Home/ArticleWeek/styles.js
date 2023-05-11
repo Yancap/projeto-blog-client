@@ -24,6 +24,9 @@ export const Image = styled.div`
         width: 100%;
         height: auto;
     }
+    @media screen and (max-width: 450px){
+        width: 20rem;
+    }
 `
 
 export const Content = styled.div`
@@ -47,13 +50,13 @@ export const Content = styled.div`
         margin-bottom: 14px;
         h4{
             font-weight: 700;
-            font-size: 28px;
+            font-size: 1.75rem;
             line-height: 28px;
             color: var(--black);
         }
         p{
             font-weight: 400;
-            font-size: 16px;
+            font-size: 1rem;
             line-height: 19px;
             color: var(--color-span);
         }

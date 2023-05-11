@@ -2,13 +2,23 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 10rem 5fr;
     grid-auto-rows: 7rem;
     gap: .75rem;
     cursor: pointer;
     padding: 8px 4px;
     &:hover{
        background-color: var(--background-tertiary);
+    }
+    @media screen and (max-width: 700px) {
+        grid-auto-rows: 9rem;
+    }
+    @media screen and (max-width: 500px) {
+        display: flex;
+        flex-direction: column;
+    }
+    @media screen and (max-width: 350px) {
+        align-items: center;
     }
 `
 
@@ -22,6 +32,14 @@ export const Image = styled.div`
     img{
         max-height: 100%;
         width: auto;
+    }
+    @media screen and (max-width: 500px) {
+        width: 18rem;
+        height: 12rem;
+    }
+    @media screen and (max-width: 350px) {
+        width: 12rem;
+        height: 8rem;
     }
 `
 
@@ -60,11 +78,17 @@ export const Content = styled.div`
                 fill: var(--color-border);
             }
         }
+        @media screen and (max-width: 350px) {
+            justify-content: space-around;
+        }
     }
     p::first-line{
         overflow: hidden;
         max-width: 10px;
         text-overflow: ellipsis;
         white-space: nowrap;
+    }
+    @media screen and (max-width: 350px) {
+        text-align: center;
     }
 `
