@@ -9,6 +9,10 @@ export const Article = styled.div`
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25), 2px 2px 2px rgba(0, 0, 0, 0.15);
+    @media screen and (max-width: 600px){
+        width: 100%;
+        max-width: 30rem;
+    }
 `
 
 export const Image = styled.div`

@@ -3,7 +3,6 @@ import { Container, Content, Search } from './styles'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { ReactComponent as Git} from '../../assets/network/git.svg'
 import { ReactComponent as Linkedin} from '../../assets/network/linkedin.svg'
-import { ReactComponent as Instagram } from '../../assets/network/instagram.svg'
 import { ReactComponent as Account } from '../../assets/header/account.svg'
 import { ReactComponent as SearchIcon } from '../../assets/header/search.svg'
 import {  useNavigate } from 'react-router-dom'
@@ -29,23 +28,21 @@ export const Header = () => {
             <Logo />
           </div>
 
-          <Search>
-            <div>
+          
+            <div className='social'>
               <Git />
               <Linkedin />
-              <Instagram />
             </div>
-            <form action="" onSubmit={handleSubmit}>
+            <form action="" onSubmit={handleSubmit} className='search'>
               <input type="text" onChange={handleChange} value={search}/>
               <button type="submit">
                 <SearchIcon />
               </button>
             </form>
-            <div onClick={() => navigate('/login')}>
+            {/* <div onClick={() => navigate('/login')}>
               <Account />
               <a>LOGIN</a>
-            </div>
-          </Search>
+            </div> */}
         </Content>
     </Container>
     

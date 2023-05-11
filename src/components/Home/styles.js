@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const ContainerPrimary = styled.section`
-    --margin-top-image: -50px;
     display: grid;
     grid-template-areas:
     'title title title'
@@ -35,16 +34,25 @@ export const ContainerPrimary = styled.section`
         }
         .container-comments{
             box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
-            background-color: var(--background-secondary);
+            background-color: var(--background-article);
             padding: 6px;
             li{
                 list-style: none;
             }
         }
     }
+    @media screen and (max-width: 875px){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        max-width: calc(100vw - 2rem);
+        
+    }
 `
 
 export const ContainerArticles = styled.section`
+    
     margin-top: 5rem;
     h2{
         font-family: 'Tinos';
@@ -55,8 +63,21 @@ export const ContainerArticles = styled.section`
         margin-bottom: 2rem;
     }
     > div{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        max-width: calc(100vw - 2rem);
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1rem;
+        > div {
+            width: 31%;
+            min-width: 17rem;
+            a{
+              width: 100%;  
+            }
+            
+        }
+        @media screen and (max-width: 535px){
+            justify-content: space-evenly;
+        }
     }
 `

@@ -7,7 +7,7 @@ export const Container = styled.div`
         width: 18rem;
         max-height: 30rem;
         height: auto;
-        background-color: var(--background-secondary);
+        background-color: var(--background-article);
         border-radius: 6px;
         overflow: hidden;
         transition: 0.25s;
@@ -23,9 +23,13 @@ export const Image = styled.div`
     width: 100%;
     height: 12rem;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
     img{
-        width: 100%;
-        height: auto;
+        min-width: 100%;
+        width: auto;
+        height: 100%;
+        flex-shrink: 0;
     }
 `
 

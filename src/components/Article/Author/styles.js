@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    background: #D0CEF9;
+    background: var(--background-article);
     border-top: 14px solid var(--color-border);
     padding: 8px 0px;
     
@@ -11,7 +11,7 @@ export const Label = styled.div`
     margin: 8px 0;
     width: 100%;
     padding: 4px;
-    background: var(--background-article);
+    background: var(--background-primary);
     display: flex;
     align-items: center;
     justify-content: space-around;
