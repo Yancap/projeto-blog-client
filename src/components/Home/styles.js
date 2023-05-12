@@ -76,6 +76,9 @@ export const ContainerArticles = styled.section`
             }
             
         }
+        @media screen and (max-width: 840px){
+            justify-content: space-evenly;
+        }
         @media screen and (max-width: 535px){
             justify-content: space-evenly;
         }

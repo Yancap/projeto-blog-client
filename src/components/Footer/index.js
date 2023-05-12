@@ -8,8 +8,12 @@ export const Footer = () => {
         <Container>
             <Content>
                 <Social>
-                    <Git />
-                    <Linkedin />
+                    <a href="https://github.com/Yancap" target='_blank'>
+                        <Git />
+                    </a>
+                    <a href="https://www.linkedin.com/in/yangabriel/" target='_blank'>
+                        <Linkedin />
+                    </a>
                 </Social>
                 <Credit>
                     <p>Projeto feito por Yan Gabriel Ferreira</p>

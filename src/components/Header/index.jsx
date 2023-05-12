@@ -30,8 +30,13 @@ export const Header = () => {
 
           
             <div className='social'>
-              <Git />
-              <Linkedin />
+              <a href="https://github.com/Yancap" target='_blank'>
+                <Git />
+              </a>
+              <a href="https://www.linkedin.com/in/yangabriel/" target='_blank'>
+                <Linkedin />
+              </a>
+              
             </div>
             <form action="" onSubmit={handleSubmit} className='search'>
               <input type="text" onChange={handleChange} value={search}/>

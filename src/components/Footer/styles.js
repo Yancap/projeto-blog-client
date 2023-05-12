@@ -18,6 +18,7 @@ export const Content = styled.div`
 export const Social = styled.div`
     display: flex;
     width: 18%;
+    min-width: 10rem;
     justify-content: space-evenly;
     margin-bottom: 0.5rem;
 `
