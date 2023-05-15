@@ -1,4 +1,4 @@
-export const SRC = 'https://artech-api.onrender.com/'
+export const SRC = 'http://localhost:3001/'
 
 export async function getArticlesforHome(){
     const response =  await fetch(SRC + 'articles/show-all')
@@ -44,6 +44,29 @@ export async function searchArticleByContent(query){
 
 export async function loginRequest(data){
     const response =  await fetch(SRC + `users/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    const userData = await response.json()
+    return userData
+}
+
+export async function authTokenRequest(token){
+    const response =  await fetch(SRC + `users/login`, {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    const userData = await response.json()
+    return userData
+}
+
+export async function registerRequest(data){
+    const response =  await fetch(SRC + `users/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

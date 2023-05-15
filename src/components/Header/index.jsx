@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Content, Search } from './styles'
+import { Container, Content } from './styles'
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 import { ReactComponent as Git} from '../../assets/network/git.svg'
 import { ReactComponent as Linkedin} from '../../assets/network/linkedin.svg'
@@ -8,9 +8,12 @@ import { ReactComponent as SearchIcon } from '../../assets/header/search.svg'
 import {  useNavigate } from 'react-router-dom'
 import { SearchContext } from '../../context/SearchContext'
 import { searchArticleByContent } from '../../request'
+import { LoginContext } from '../../context/LoginContext'
 
 export const Header = () => {
   const {setSearch, search, setResult, navigate: nav} = React.useContext(SearchContext)
+  const {isLogged, user} = React.useContext(LoginContext)
+
   const navigate = useNavigate()
   async function handleSubmit(event){
     event.preventDefault()
@@ -27,8 +30,6 @@ export const Header = () => {
           <div onClick={() => nav('/')}>
             <Logo />
           </div>
-
-          
             <div className='social'>
               <a href="https://github.com/Yancap" target='_blank'>
                 <Git />
@@ -44,10 +45,13 @@ export const Header = () => {
                 <SearchIcon />
               </button>
             </form>
-            {/* <div onClick={() => navigate('/login')}>
+            <div 
+              onClick={() => {
+                isLogged ? navigate('/profile') : navigate('/login')
+              }} className='login'>
               <Account />
-              <a>LOGIN</a>
-            </div> */}
+              <a>{isLogged ? user.name : 'LOGIN'}</a>
+            </div>
         </Content>
     </Container>
     

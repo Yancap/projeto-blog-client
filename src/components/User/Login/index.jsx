@@ -1,21 +1,44 @@
 import React from 'react'
 import { Container, Content, Form, Submit, Title } from '../styles'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { loginRequest } from '../../../request'
+import { LoginContext } from '../../../context/LoginContext'
 
 export const Login = () => {
-    // Fazer as requisições de login
+  const [login, setLogin] = React.useState({
+    email: '', password: ''
+  })
+  const {setIsLogged, setUser} = React.useContext(LoginContext)
+  const navigate = useNavigate()
+  async function handleSubmit(event){
+    event.preventDefault()
+    const response = await loginRequest(login)
+    if (response.token && response.name && response.hierarchy) {
+        localStorage.setItem('token', response.token)
+        setUser({
+            name: response.name,
+            hierarchy: response.hierarchy
+        })
+        setIsLogged(true)
+        navigate('/')
+    }
+  }
   return (
     <Container>
         <Content>
             <Title>LOGIN</Title>
-            <Form>
+            <Form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" />
+                    <input type="email" name="email" id="email" onChange={({currentTarget}) => setLogin({
+                        ...login, ['email']: currentTarget.value
+                    })}/>
                 </div>
                 <div>
                     <label htmlFor="password">Senha</label>
-                    <input type="password" name="password" id="password" />
+                    <input type="password" name="password" id="password" onChange={({currentTarget}) => setLogin({
+                        ...login, ['password']: currentTarget.value
+                    })}/>
                 </div>
                 <Link to={'/register'}>Não tem cadastro?</Link>
                 <Submit>Entrar</Submit>
