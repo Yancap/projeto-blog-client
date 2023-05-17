@@ -15,7 +15,9 @@ export const GlobalStyle = createGlobalStyle`
         --black: #1C0013;
         --white: #fff;
         --color-border:#4745B8;
-
+        --red: #FF7070;
+        --yellow: #EBE081;
+        
         --font-text: 'Roboto', Helvetica, sans-serif;
         --font-title: 'Tinos', serif;
         --font-functional: 'Roboto Condensed', Helvetica, sans-serif ;
