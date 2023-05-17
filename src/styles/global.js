@@ -17,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
         --color-border:#4745B8;
         --red: #FF7070;
         --yellow: #EBE081;
-        
+
         --font-text: 'Roboto', Helvetica, sans-serif;
         --font-title: 'Tinos', serif;
         --font-functional: 'Roboto Condensed', Helvetica, sans-serif ;
@@ -33,7 +33,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     html{
-        /* Configuração IMPORTANTE!!! */
+        /* Configuração IMPORTANTE!! */
         @media (max-width: 1080px) {
             font-size: 93.75%;
         }
