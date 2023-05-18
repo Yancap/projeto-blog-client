@@ -78,10 +78,20 @@ export const ContentDeeds = styled.section`
     div.header{
         display: flex;
         justify-content: space-between;
+        align-items: center;
         h2{
             font-weight: 700;
             font-size: 2rem;
             color: #000000;
+        }
+        svg{
+            height: 1.25rem;
+            width: auto;
+            cursor: pointer;
+            transition: transform 1s;
+            &.active{
+                transform: rotate(180deg);
+            }
         }
     }
     div.content{

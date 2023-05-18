@@ -44,20 +44,15 @@ export const Content = styled.div`
 export const Settings = styled.div`
     display: grid;
     grid-template-rows: 1fr 1fr;
+    overflow: hidden;
     visibility: hidden;
+    opacity: 0;
+    width:0%;
+    transition: all .5s;
     &.active{
-        animation: openning 1s forwards;
-        @keyframes openning {
-            from{
-                opacity: 0;
-                transform: translateX(-150px);
-            }
-            to{
-                visibility: visible;
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
+        visibility: visible;
+        width: 100%;
+        opacity: 1;
     }
     button{
         border: 0;
