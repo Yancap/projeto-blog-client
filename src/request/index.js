@@ -1,4 +1,4 @@
-export const SRC = 'http://localhost:3001/'
+export const SRC = 'https://artech-api.onrender.com/'
 
 export async function getArticlesforHome(){
     const response =  await fetch(SRC + 'articles/show-all')
@@ -7,13 +7,13 @@ export async function getArticlesforHome(){
 }
 
 export async function getCommentsforArticles(id){
-    const response =  await fetch(SRC + 'articles/comments?id=' + id)
+    const response =  await fetch(SRC + 'comments/show?id=' + id)
     const comments = await response.json()
     return comments
 }
 
 export async function getAllComments(){
-    const response =  await fetch(SRC + 'articles/all-comments')
+    const response =  await fetch(SRC + 'comments/all')
     const comments = await response.json()
     return comments
 }
