@@ -23,7 +23,7 @@ export const Home = () => {
                         content={article[0].subtitle}
                         author={article[0].author}
                         date={new Intl.DateTimeFormat('pt-BR').format(new Date(article[0]['created_at']))}
-                        //commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === article[0].id ? total + 1 : 0, 0) : 0}
+                        commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === article[0].id ? total + 1 : 0, 0) : 0}
                         id={article[0].id}
                     />
                 }
@@ -54,7 +54,7 @@ export const Home = () => {
                             content={art.subtitle}
                             author={art.author}
                             date={new Intl.DateTimeFormat('pt-BR').format(new Date(art['created_at']))}
-                            //commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === art.id ? total + 1 : 0, 0) : 0}
+                            commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === art.id ? total + 1 : 0, 0) : 0}
                             id={art.id}
                         /> 
                     )

@@ -17,12 +17,17 @@ export const Article = styled.div`
 
 export const Image = styled.div`
     margin-top: var(--margin-top-image);
+    height: 15rem;
     width: 26rem;
     border-radius: 4px;
+    border: 2px solid var(--background-article);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
     }
     @media screen and (max-width: 450px){
         width: 20rem;

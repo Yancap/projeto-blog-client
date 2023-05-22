@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
         --font-text: 'Roboto', Helvetica, sans-serif;
         --font-title: 'Tinos', serif;
         --font-functional: 'Roboto Condensed', Helvetica, sans-serif ;
+        --margin-top-image: -2rem;
     }
     #root{
         display: flex;
