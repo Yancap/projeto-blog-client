@@ -3,19 +3,14 @@ import { ArticleWeek } from './ArticleWeek'
 import { ContainerArticles, ContainerPrimary } from './styles'
 import { Comments } from './Comments'
 import { Card } from './Card'
-import { getAllComments, getArticlesforHome, getCommentsforArticles } from '../../request'
+import {  getAllCommentsForArticles, getArticlesForHome } from '../../request'
 
 export const Home = () => {
   const [article, setArticle] = React.useState(null)
-  const [articleComments, setArticleComments] = React.useState(null)
   const [comments, setComments] = React.useState(null)
   React.useEffect(()=>{
-    const articles = getArticlesforHome()
-    const articlesComments = getCommentsforArticles(1)
-    const allComments = getAllComments()
-    articles.then(data => setArticle(data.articles))
-    articlesComments.then(data => setArticleComments(data.comments))
-    allComments.then(data => setComments(data.comments))
+    getArticlesForHome().then(data => setArticle(data))
+    getAllCommentsForArticles(1).then(data => setComments(data))
   }, [])
   return (
     <>
