@@ -1,15 +1,14 @@
 import React from 'react'
 import { Container, Content } from './styles'
 import { ReactComponent as CommentIcon } from '../../../assets/article/comments.svg'
-import { getCommentsforArticles } from '../../../request'
+import { getAllCommentsForArticles } from '../../../request'
 import { Comments } from '../Comments'
 
 
 export const CommentsContainer = ({id}) => {
   const [articleComments, setArticleComments] = React.useState(null)
   React.useEffect(() => {
-    const comments = getCommentsforArticles(id)
-    console.log(comments);
+    const comments = getAllCommentsForArticles(id)
     comments.then(data => setArticleComments(data.comments))
   },[id])
   return (
