@@ -14,7 +14,8 @@ export const Header = () => {
   const navigate = useNavigate()
   async function handleSubmit(event){
     event.preventDefault()
-    const {article} = await searchArticleByContent(search)
+    const article = await searchArticleByContent(search)
+    console.log(article);
     setResult(article)
     navigate('/search')
   }
@@ -27,8 +28,6 @@ export const Header = () => {
           <div onClick={() => nav('/')}>
             <Logo />
           </div>
-
-          
             <div className='social'>
               <a href="https://github.com/Yancap" target='_blank'>
                 <Git />

@@ -13,7 +13,7 @@ export const Search = () => {
   const navigate = useNavigate()
   async function handleSubmit(event){
     event.preventDefault()
-    const {article} = await searchArticleByContent(search)
+    const article = await searchArticleByContent(search)
     setAux(search)
     setResult(article)
   }

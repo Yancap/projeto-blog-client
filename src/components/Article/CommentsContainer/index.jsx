@@ -1,24 +1,18 @@
 import React from 'react'
 import { Container, Content } from './styles'
 import { ReactComponent as CommentIcon } from '../../../assets/article/comments.svg'
-import { getAllCommentsForArticles } from '../../../request'
 import { Comments } from '../Comments'
 
 
-export const CommentsContainer = ({id}) => {
-  const [articleComments, setArticleComments] = React.useState(null)
-  React.useEffect(() => {
-    const comments = getAllCommentsForArticles(id)
-    comments.then(data => setArticleComments(data.comments))
-  },[id])
+export const CommentsContainer = ({comments}) => {
   return (
     <Container>
         <div className='comment-logo'>
             <CommentIcon />
-            <h2>Comentários ({articleComments?.length})</h2>
+            <h2>Comentários ({comments?.length})</h2>
         </div>
         <Content>
-            {articleComments?.map(comment => (
+            {comments?.map(comment => (
                 <li key={comment.id}>
                     <Comments 
                         author={comment.name}

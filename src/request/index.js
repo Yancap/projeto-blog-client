@@ -37,7 +37,9 @@ export async function getAuthorArticles(user_id){
 }
 
 export async function searchArticleByContent(query){
-    const response =  await fetch(SRC + `search?title=${query}`)
+    console.log(query);
+    const response =  await fetch(SRC + `search?content=${query}`)
+    console.log(response);
     const article = await response.json()
     return article
 }
