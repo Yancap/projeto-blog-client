@@ -8,19 +8,18 @@ export const Article = ({article, set}) => {
   return (
     <Container>
       <Image>
-        <img src="" alt="" />
+        <img src={article.image} alt="" />
       </Image>
       <Content>
         <h3>
-          Titulo do Artigo Lorem Ipsum dolor sit ammet
+          {article.title}
         </h3>
         <span>
           <Clock />
-          03/04/2023
+          {new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}
         </span>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elementum, 
-          arcu ut bibendum lobortis, orci velit sagittis magna, nec dapibus nibh purus id ante...
+          {article.text}
         </p>
       </Content>
       <Settings className={set && 'active'}>

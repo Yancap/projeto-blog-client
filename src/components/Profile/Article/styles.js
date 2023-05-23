@@ -4,12 +4,24 @@ import styled from "styled-components";
 export const Container = styled.article`
     display: grid;
     grid-template-columns: 3fr 8fr 1fr;
-    height: 8rem;
+    min-height: 7.5rem;
+    max-height: 8rem;
     
 `
 export const Image = styled.div`
     background: #ccc;
+    overflow: hidden;
     margin-right: .5rem;
+    display: grid;
+    place-items: center;
+    min-height: 7.5rem;
+    max-height: 8.5rem;
+    img{
+        min-width: 100%;
+        min-height: 100%;
+        height: 100%;
+        width: auto;
+    }
 `
 
 export const Content = styled.div`
@@ -18,14 +30,18 @@ export const Content = styled.div`
     justify-content: space-between;
     h3{
         font-size: 1.25rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
     }
     span{
         display: flex;
         align-items: center;
         gap: .5rem;
-        font-size: .9rem;
+        font-size: 1rem;
         svg{
-            height: .9rem;
+            height: 1rem;
             width: auto;
         }
         path{
@@ -36,8 +52,12 @@ export const Content = styled.div`
         font-weight: 700;
     }
     p{
-        font-size: .9rem;
+        font-size: 1rem;
         color: #383838;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
 `
 

@@ -3,10 +3,20 @@ import { Container, ContentDeeds, ContentProfile } from './styles'
 import { Article } from './Article'
 import { Comments } from './Comments'
 import {ReactComponent as Settings} from '../../assets/settings.svg'
+import {  getUserArticles, getUserComments } from '../../request'
 
 export const Profile = ({user}) => {
   const [ settings, setSettings ] = React.useState(false)
-  
+  const [ articles, setArticles ] = React.useState(null)
+  const [ comments, setComments ] = React.useState(null)
+
+  async function getData(){
+    const token = localStorage.getItem('token')
+    const [art, comm] = await Promise.all([getUserArticles(token), getUserComments(token)])
+    setArticles(art)
+    setComments(comm)
+  }
+  React.useEffect(()=> {getData()}, [])
   return (
     <Container>
       <ContentProfile>
@@ -35,8 +45,10 @@ export const Profile = ({user}) => {
           <Settings className={settings && 'active'} onClick={()=>setSettings(!settings)}/>
         </div>
         <div className='content'>
-          <Article set={settings}/>
-          <Article set={settings}/>
+          {articles && articles.map(article => (
+            <Article set={settings} article={article}  key={article.id}/>
+          ))}
+          
         </div>
       </ContentDeeds>
       <ContentDeeds>
@@ -44,8 +56,9 @@ export const Profile = ({user}) => {
           <h2>Seus Comentários</h2>
         </div>
         <div className='content'>
-          <Comments />
-          <Comments />
+          {comments && comments.map(comment => (
+              <Comments comment={comment} key={comment.id}/>
+          ))}
         </div>
       </ContentDeeds>
     </Container>

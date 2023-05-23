@@ -1,4 +1,4 @@
-export const SRC = 'https://artech-api.onrender.com/'
+export const SRC = 'http://localhost:3001/'
 
 export async function getArticlesForHome(){
     const response =  await fetch(SRC + 'articles/show-all')
@@ -32,11 +32,33 @@ export async function getAuthor(id){
 }
 
 export async function getAuthorArticles(user_id){
+    
     const response =  await fetch(SRC + `articles/show?user_id=${user_id}`)
     const author = await response.json()
     return author
+    
 }
 
+export async function getUserArticles(token){
+    const response =  await fetch(SRC + `articles/show/user`, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    const author = await response.json()
+    return author
+}
+export async function getUserComments(token){
+    const response =  await fetch(SRC + `comments/show/user`, {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    const author = await response.json()
+    return author
+}
 export async function searchArticleByContent(query){
     const response =  await fetch(SRC + `search?title=${query}`)
     const article = await response.json()

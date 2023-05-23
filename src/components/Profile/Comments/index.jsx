@@ -3,21 +3,28 @@ import { Container, Content, Settings } from './styles'
 import { ReactComponent as Clock } from '../../../assets/article/clock.svg'
 import { ReactComponent as Delete } from '../../../assets/delete.svg'
 import { ReactComponent as Edit } from '../../../assets/edit.svg'
+import { getArticles } from '../../../request'
 
-export const Comments = () => {
+export const Comments = ({comment}) => {
+  const [title, setTitle] = React.useState(null)
+  React.useEffect(()=>{
+    const article = getArticles(comment.article_id)
+    console.log(article);
+    article.then(art => setTitle(art.title))
+  },[])
   return (
     <Container>
       <Content>
         <h3>
-          Titulo do Comentário Lorem Ipsum dolor sit ammet
+          {comment.title}
         </h3>
         <span>
           <Clock />
-          03/04/2023 - Titulo do Artigo Lorem Ipsum dolor sit...
+          {new Intl.DateTimeFormat('pt-BR').format(new Date(comment['created_at']))} - 
+          {title}
         </span>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elementum, 
-          arcu ut bibendum lobortis, orci velit sagittis magna, nec dapibus nibh purus id ante...
+          {comment.text}
         </p>
       </Content>
       <Settings>
