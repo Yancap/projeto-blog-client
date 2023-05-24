@@ -100,13 +100,13 @@ export async function registerRequest(data){
     return userData
 }
 
-export async function changeAvatar(avatar){
+export async function changeAvatar(avatar, token){
     const response =  await fetch(SRC + `users/avatar`, {
         method: 'PUT',
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(avatar)
+            'Authorization': 'Bearer ' + token
+        }
+        
     })
     const message = await response.json()
     return message

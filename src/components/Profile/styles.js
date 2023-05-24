@@ -22,12 +22,10 @@ export const ContentProfile = styled.section`
         display: flex;
         flex-direction: column;
         img{
-            min-height: calc(100% - 1.5rem);
             height: auto;
+            min-height: calc(100% - 1.5rem);
+            width: 100%;
             background: #ddd;
-        }
-        button{
-            
         }
     }
 

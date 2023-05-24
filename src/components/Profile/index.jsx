@@ -2,14 +2,15 @@ import React from 'react'
 import { AddAvatar, Container, ContentDeeds, ContentProfile } from './styles'
 import { Article } from './Article'
 import { Comments } from './Comments'
-import {ReactComponent as Settings} from '../../assets/settings.svg'
-import {  getUserArticles, getUserComments } from '../../request'
+import { ReactComponent as Settings } from '../../assets/settings.svg'
+import {  changeAvatar, getUserArticles, getUserComments } from '../../request'
 
-export const Profile = ({user}) => {
+export const Profile = ({user, setReload}) => {
   const [ settings, setSettings ] = React.useState(false)
   const [ articles, setArticles ] = React.useState(null)
   const [ comments, setComments ] = React.useState(null)
   const [ avatar, setAvatar ] = React.useState(null)
+  const [ response, setResponse ] = React.useState(null)
 
   async function getData(){
     const token = localStorage.getItem('token')
@@ -23,23 +24,30 @@ export const Profile = ({user}) => {
       setAvatar(reader.result)
     }
     reader.readAsDataURL(event.target.files[0]);
-    console.log(avatar);
   }
-  React.useEffect(()=> {getData()}, [])
+  async function handleSubmit(event){
+    event.preventDefault()
+    const token = localStorage.getItem('token')
+    const resp = await changeAvatar(token, avatar)
+    setResponse(resp)
+    setReload(true)
+  }
+  console.log(user.avatar);
+  React.useEffect(()=> {getData()}, [response])
   return (
     <Container>
       <ContentProfile>
         <div className='avatar'>
             <img src={user.avatar || avatar} alt="Avatar" />
             
-            <AddAvatar>
-              {!avatar ? 
+            <AddAvatar onSubmit={handleSubmit}>
+              {!avatar && !user.avatar? 
               <>
                 <label htmlFor="avatar">{!user.avatar ? 'Adicionar ' : 'Trocar de '}Avatar</label>
                 <input type="file" id="avatar" onChange={handleChange}/>
               </> : 
               <>
-                <button>
+                <button type='submit'>
                   Enviar
                 </button>
               </>}

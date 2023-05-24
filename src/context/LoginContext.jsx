@@ -7,8 +7,10 @@ export const LoginContext = React.createContext()
 export const LoginStorage = ({children}) =>{
     const [isLogged, setIsLogged] = React.useState(false)
     const [user, setUser] = React.useState({
-        name: '', hierarchy: '',
+        name: '', hierarchy: '', avatar: null
     })
+    const [reload, setReload] = React.useState(false)
+
     const navigate = useNavigate()
     async function authRequest(token){
         const response = await authTokenRequest(token)
@@ -19,7 +21,8 @@ export const LoginStorage = ({children}) =>{
             setIsLogged(true)
             setUser({
                 name: response.name,
-                hierarchy: response.hierarchy
+                hierarchy: response.hierarchy,
+                avatar: response.avatar
             })
         }
     }
@@ -29,9 +32,9 @@ export const LoginStorage = ({children}) =>{
             return setIsLogged(false)
         }
         authRequest(token)
-    }, [])
+    }, [reload])
     return (
-        <LoginContext.Provider value={{isLogged, setIsLogged, user, setUser}}>
+        <LoginContext.Provider value={{isLogged, setIsLogged, user, setUser, reload, setReload}}>
             {children}
         </LoginContext.Provider>
     )
