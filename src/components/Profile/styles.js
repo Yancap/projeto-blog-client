@@ -27,15 +27,7 @@ export const ContentProfile = styled.section`
             background: #ddd;
         }
         button{
-            background: #fff;
-            height: 1.5rem;
-            border: 0;
-            font-weight: 700;
-            color: #282773;
-            transition: filter .25s;
-            &:hover{
-                filter: brightness(.9);
-            }
+            
         }
     }
 
@@ -66,6 +58,28 @@ export const ContentProfile = styled.section`
             &:hover{
                 filter: brightness(.9);
             }
+        }
+    }
+`
+export const AddAvatar = styled.form`
+
+    input{
+        display: none;
+    }
+    label, button{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        background: #fff;
+        height: 1.5rem;
+        border: 0;
+        font-weight: 700;
+        color: #282773;
+        transition: filter .25s;
+        &:hover{
+            filter: brightness(.9);
         }
     }
 `

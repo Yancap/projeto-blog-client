@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, ContentDeeds, ContentProfile } from './styles'
+import { AddAvatar, Container, ContentDeeds, ContentProfile } from './styles'
 import { Article } from './Article'
 import { Comments } from './Comments'
 import {ReactComponent as Settings} from '../../assets/settings.svg'
@@ -9,6 +9,7 @@ export const Profile = ({user}) => {
   const [ settings, setSettings ] = React.useState(false)
   const [ articles, setArticles ] = React.useState(null)
   const [ comments, setComments ] = React.useState(null)
+  const [ avatar, setAvatar ] = React.useState(null)
 
   async function getData(){
     const token = localStorage.getItem('token')
@@ -16,13 +17,34 @@ export const Profile = ({user}) => {
     setArticles(art)
     setComments(comm)
   }
+  function handleChange(event){
+    let reader = new FileReader();
+    reader.onload = () => {
+      setAvatar(reader.result)
+    }
+    reader.readAsDataURL(event.target.files[0]);
+    console.log(avatar);
+  }
   React.useEffect(()=> {getData()}, [])
   return (
     <Container>
       <ContentProfile>
         <div className='avatar'>
-            <img src={user.avatar} alt="Avatar" />
-            {!user.avatar && <button>Adicionar Avatar</button>}
+            <img src={user.avatar || avatar} alt="Avatar" />
+            
+            <AddAvatar>
+              {!avatar ? 
+              <>
+                <label htmlFor="avatar">{!user.avatar ? 'Adicionar ' : 'Trocar de '}Avatar</label>
+                <input type="file" id="avatar" onChange={handleChange}/>
+              </> : 
+              <>
+                <button>
+                  Enviar
+                </button>
+              </>}
+              
+            </AddAvatar>
         </div>
         <div className='user'>
           <h1>{user.name}</h1>

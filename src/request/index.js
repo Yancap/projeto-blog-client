@@ -99,3 +99,15 @@ export async function registerRequest(data){
     const userData = await response.json()
     return userData
 }
+
+export async function changeAvatar(avatar){
+    const response =  await fetch(SRC + `users/avatar`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(avatar)
+    })
+    const message = await response.json()
+    return message
+}
