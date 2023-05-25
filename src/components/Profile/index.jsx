@@ -4,13 +4,15 @@ import { Article } from './Article'
 import { Comments } from './Comments'
 import { ReactComponent as Settings } from '../../assets/settings.svg'
 import {  changeAvatar, getUserArticles, getUserComments } from '../../request'
+import { LoginContext } from '../../context/LoginContext'
 
-export const Profile = ({user, setReload}) => {
+export const Profile = ({user}) => {
   const [ settings, setSettings ] = React.useState(false)
   const [ articles, setArticles ] = React.useState(null)
   const [ comments, setComments ] = React.useState(null)
   const [ avatar, setAvatar ] = React.useState(null)
-  const [ response, setResponse ] = React.useState(null)
+
+  const {setReload, reload} = React.useContext(LoginContext)
 
   async function getData(){
     const token = localStorage.getItem('token')
@@ -28,20 +30,19 @@ export const Profile = ({user, setReload}) => {
   async function handleSubmit(event){
     event.preventDefault()
     const token = localStorage.getItem('token')
-    const resp = await changeAvatar(token, avatar)
-    setResponse(resp)
-    setReload(true)
+    const resp = await changeAvatar(avatar, token)
+    setAvatar(null)
+    setReload(!reload)
   }
-  console.log(user.avatar);
-  React.useEffect(()=> {getData()}, [response])
+  React.useEffect(()=> {getData()}, [])
   return (
     <Container>
       <ContentProfile>
         <div className='avatar'>
-            <img src={user.avatar || avatar} alt="Avatar" />
+            <img src={avatar || user.avatar} alt="Avatar" />
             
             <AddAvatar onSubmit={handleSubmit}>
-              {!avatar && !user.avatar? 
+              {!avatar && user.avatar ? 
               <>
                 <label htmlFor="avatar">{!user.avatar ? 'Adicionar ' : 'Trocar de '}Avatar</label>
                 <input type="file" id="avatar" onChange={handleChange}/>
@@ -51,7 +52,6 @@ export const Profile = ({user, setReload}) => {
                   Enviar
                 </button>
               </>}
-              
             </AddAvatar>
         </div>
         <div className='user'>

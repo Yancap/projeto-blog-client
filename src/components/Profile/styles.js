@@ -44,7 +44,7 @@ export const ContentProfile = styled.section`
             font-size: 1.25rem;
             color: #282773;
         }
-        button{
+        > button{
             background: #eee;
             padding: .5rem;
             border: 0;
@@ -73,7 +73,8 @@ export const AddAvatar = styled.form`
         background: #fff;
         height: 1.5rem;
         border: 0;
-        font-weight: 700;
+        font-weight: 600;
+        font-size: 14px;
         color: #282773;
         transition: filter .25s;
         &:hover{

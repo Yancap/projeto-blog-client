@@ -14,7 +14,7 @@ export const LoginStorage = ({children}) =>{
     const navigate = useNavigate()
     async function authRequest(token){
         const response = await authTokenRequest(token)
-        if (response.status === 'error') {
+        if (response.redirect) {
             setIsLogged(false)
             navigate('/login')
         } else {

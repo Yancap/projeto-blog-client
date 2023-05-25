@@ -15,7 +15,7 @@ import { GlobalStyle } from "./styles/global";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 function App() {
-  const {user, setReload} = React.useContext(LoginContext)
+  const {user} = React.useContext(LoginContext)
   return (
       <>
             <GlobalStyle />
@@ -27,7 +27,7 @@ function App() {
                 <Route path="/article/:id" element={<Article />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/profile" element={<Profile setReload={setReload} user={user}/>} />
+                <Route path="/profile" element={<Profile  user={user}/>} />
               </Routes>
             </Main>
             <Footer />

@@ -104,9 +104,10 @@ export async function changeAvatar(avatar, token){
     const response =  await fetch(SRC + `users/avatar`, {
         method: 'PUT',
         headers: {
+            'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
-        }
-        
+        },
+        body: JSON.stringify({avatar: avatar})
     })
     const message = await response.json()
     return message
