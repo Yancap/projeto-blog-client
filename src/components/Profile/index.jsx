@@ -5,15 +5,16 @@ import { Comments } from './Comments'
 import { ReactComponent as Settings } from '../../assets/settings.svg'
 import {  changeAvatar, getUserArticles, getUserComments } from '../../request'
 import { LoginContext } from '../../context/LoginContext'
+import { Route, Routes, useNavigate } from 'react-router-dom'
+import { CreateArticle } from '../CreateArticle'
 
 export const Profile = ({user}) => {
   const [ settings, setSettings ] = React.useState(false)
   const [ articles, setArticles ] = React.useState(null)
   const [ comments, setComments ] = React.useState(null)
   const [ avatar, setAvatar ] = React.useState(null)
-
   const {setReload, reload} = React.useContext(LoginContext)
-
+  const navigate = useNavigate();
   async function getData(){
     const token = localStorage.getItem('token')
     const [art, comm] = await Promise.all([getUserArticles(token), getUserComments(token)])
@@ -40,7 +41,6 @@ export const Profile = ({user}) => {
       <ContentProfile>
         <div className='avatar'>
             <img src={avatar || user.avatar} alt="Avatar" />
-            
             <AddAvatar onSubmit={handleSubmit}>
               {!avatar && user.avatar ? 
               <>
@@ -63,7 +63,7 @@ export const Profile = ({user}) => {
             }
           </span>
           {
-            user.hierarchy === 'reader' ? null : <button>Criar Artigo</button>
+            user.hierarchy === 'reader' ? null : <button onClick={() => navigate('/profile/create-article')}>Criar Artigo</button>
           }
           
         </div>
@@ -78,7 +78,6 @@ export const Profile = ({user}) => {
           {articles && articles.map(article => (
             <Article set={settings} article={article}  key={article.id}/>
           ))}
-          
         </div>
       </ContentDeeds>
       <ContentDeeds>
@@ -91,6 +90,7 @@ export const Profile = ({user}) => {
           ))}
         </div>
       </ContentDeeds>
+
     </Container>
   )
 }

@@ -13,6 +13,7 @@ import { LoginContext, LoginStorage } from "./context/LoginContext";
 import { SearchStorage } from "./context/SearchContext";
 import { GlobalStyle } from "./styles/global";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { CreateArticle } from "./components/CreateArticle";
 
 function App() {
   const {user} = React.useContext(LoginContext)
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/profile" element={<Profile  user={user}/>} />
+                <Route path="/profile/create-article" element={<CreateArticle  user={user}/>} />
               </Routes>
             </Main>
             <Footer />
