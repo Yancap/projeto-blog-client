@@ -31,7 +31,7 @@ export const Profile = ({user}) => {
   async function handleSubmit(event){
     event.preventDefault()
     const token = localStorage.getItem('token')
-    const resp = await changeAvatar(avatar, token)
+    await changeAvatar(avatar, token)
     setAvatar(null)
     setReload(!reload)
   }

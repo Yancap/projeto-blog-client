@@ -1,5 +1,7 @@
 export const SRC = 'http://localhost:3001/'
 
+
+// ARTICLE AND COMMENTS GET
 export async function getArticlesForHome(){
     const response =  await fetch(SRC + 'articles/show-all')
     const articles = await response.json()
@@ -59,12 +61,15 @@ export async function getUserComments(token){
     const author = await response.json()
     return author
 }
+
+// SEARCH REQUEST
 export async function searchArticleByContent(query){
     const response =  await fetch(SRC + `search?title=${query}`)
     const article = await response.json()
     return article
 }
 
+// USERS REQUEST
 export async function loginRequest(data){
     const response =  await fetch(SRC + `users/login`, {
         method: 'POST',
@@ -108,6 +113,20 @@ export async function changeAvatar(avatar, token){
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify({avatar: avatar})
+    })
+    const message = await response.json()
+    return message
+}
+
+// ARTICLES POST / PUT / DELETE
+export async function createArticles(article, token){
+    const response =  await fetch(SRC + `users/avatar`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(article)
     })
     const message = await response.json()
     return message

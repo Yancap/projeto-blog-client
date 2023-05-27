@@ -4,8 +4,10 @@ import { ReactComponent as Clock } from '../../../assets/article/clock.svg'
 import { ReactComponent as Logo } from '../../../assets/logo-light.svg'
 
 export const ArticleContainer = ({article}) => {
-  
   const text = article.text?.split(' ')
+  console.log(text);
+
+  text.map( t => console.log('\\n' === JSON.stringify(t)))
   return (
     <Container>
         <LabelLogo>
@@ -22,15 +24,18 @@ export const ArticleContainer = ({article}) => {
                 <div className="image">
                     <img src={article.image} alt="" />
                 </div>
-                <span>
-                    <Clock />
-                    <strong>
-                        {new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}
-                    </strong>
-                     - {article.author}
-                </span>
+                {article['created_at'] && 
+                    <span>
+                        <Clock />
+                        <strong>
+                            {new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}
+                        </strong>
+                        - {article.author}
+                    </span>
+                }
+                {/* FAZER UM REGEX PARA LOCALIZAR A FLAG '\n' */}
                 <p>
-                    {text?.map(t => t == '/n' ? <><br /><br /></> : t + ' ')}
+                    {text?.map(t => JSON.stringify(t) === '"\\n"' ? <><br /><br /></> : t + ' ')}
                 </p>
             </Text>
         </Content>
