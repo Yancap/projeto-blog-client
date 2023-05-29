@@ -12,12 +12,12 @@ export const CreateArticle = () => {
       image: '',
   })
   const [vizualization, setVizualization] = React.useState(false)
+  const [response, setResponse] = React.useState(null)
 
   async function handleSubmit(event){
-      event.preventDefault()
-      const token = localStorage.getItem('token')
-    //   let a = JSON.stringify(article.text)
-    //   article.text = a.replace('\\n', '\\\\n')
+     event.preventDefault()
+     const token = localStorage.getItem('token')
+     await createArticles(article, token)
   }
   return (
     <Container>
@@ -35,7 +35,14 @@ export const CreateArticle = () => {
             </div>
             <div className='text'>
                 <textarea type="text" placeholder='Texto do Artigo' rows='10'
-                    onChange={({currentTarget})=>setArticle({...article, text: currentTarget.value})}
+                    onChange={({currentTarget})=>{
+                        const regex = /\\n/g
+                        //Converte primeiro para string, pois apenas assim a flag \n aparece
+                        //Logo em seguida, uso o regex para adiciona a flag \n formatada
+                        //Depois normalizo essa string e adiciono na variavel
+                        const txt = JSON.parse(JSON.stringify(currentTarget.value).replace(regex, '\\\\n'))
+                        setArticle({...article, text: txt}) 
+                    }}
                 />
             </div>
             <label htmlFor="image" className={article.image ? 'image' : 'image not'}>
@@ -59,12 +66,6 @@ export const CreateArticle = () => {
                 <button type='submit'>Publicar</button>
                 <button onClick={() =>{ 
                     setVizualization(!vizualization)
-                    if (vizualization) {
-                        let a = JSON.stringify(article.text)
-                        console.log(a);
-                        setArticle({...article, text: JSON.parse(a)}) 
-                    }
-                    console.log(article);
                 }}>{!vizualization ? "Pre-vizualição" : "Mostrar menos"}</button>
             </Buttons>
         </Content>

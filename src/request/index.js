@@ -120,13 +120,26 @@ export async function changeAvatar(avatar, token){
 
 // ARTICLES POST / PUT / DELETE
 export async function createArticles(article, token){
-    const response =  await fetch(SRC + `users/avatar`, {
-        method: 'PUT',
+    const response =  await fetch(SRC + `articles/create`, {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
         },
         body: JSON.stringify(article)
+    })
+    const message = await response.json()
+    return message
+}
+
+export async function deleteArticles(article_id, token){
+    const response =  await fetch(SRC + `articles/delete`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({article_id: article_id})
     })
     const message = await response.json()
     return message

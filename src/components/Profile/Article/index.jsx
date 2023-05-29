@@ -3,8 +3,13 @@ import { Container, Content, Image, Settings } from './styles'
 import { ReactComponent as Clock } from '../../../assets/article/clock.svg'
 import { ReactComponent as Delete } from '../../../assets/delete.svg'
 import { ReactComponent as Edit } from '../../../assets/edit.svg'
+import { deleteArticles } from '../../../request'
 
 export const Article = ({article, set}) => {
+  async function handleDelete(){
+    const token = localStorage.getItem('token')
+    await deleteArticles(article.id, token)
+  }
   return (
     <Container>
       <Image>
@@ -23,7 +28,7 @@ export const Article = ({article, set}) => {
         </p>
       </Content>
       <Settings className={set && 'active'}>
-        <button className='delete'>
+        <button className='delete' onClick={handleDelete}>
           <Delete />
         </button>
         <button className='edit'>

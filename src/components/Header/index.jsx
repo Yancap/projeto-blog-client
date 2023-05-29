@@ -24,7 +24,6 @@ export const Header = () => {
   function handleChange({currentTarget}){
     setSearch(currentTarget.value)
   }
-  console.log(user);
   return (
     <Container>
         <Content>

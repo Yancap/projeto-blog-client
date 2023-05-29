@@ -4,10 +4,9 @@ import { ReactComponent as Clock } from '../../../assets/article/clock.svg'
 import { ReactComponent as Logo } from '../../../assets/logo-light.svg'
 
 export const ArticleContainer = ({article}) => {
-  const text = article.text?.split(' ')
-  console.log(text);
+  const regex = /\\n/g //regex que verifica a flag '\n'
+  const text = article.text?.split(regex) //retira a flag do texto
 
-  text.map( t => console.log('\\n' === JSON.stringify(t)))
   return (
     <Container>
         <LabelLogo>
@@ -33,9 +32,17 @@ export const ArticleContainer = ({article}) => {
                         - {article.author}
                     </span>
                 }
-                {/* FAZER UM REGEX PARA LOCALIZAR A FLAG '\n' */}
                 <p>
-                    {text?.map(t => JSON.stringify(t) === '"\\n"' ? <><br /><br /></> : t + ' ')}
+                    {text?.map(t => 
+                    <>
+                        {/* 
+                            Vai pular linha sempre que tiver 
+                            uma separação no array por conta da remoção da flag
+                         */}
+                        {t}
+                        <br />
+                    </>
+                    )}
                 </p>
             </Text>
         </Content>
