@@ -144,3 +144,17 @@ export async function deleteArticles(article_id, token){
     const message = await response.json()
     return message
 }
+
+export async function updateArticles(article, token){
+    console.log(article);
+    const response =  await fetch(SRC + `articles/update`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(article)
+    })
+    const message = await response.json()
+    return message
+}

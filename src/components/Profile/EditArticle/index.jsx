@@ -1,24 +1,34 @@
 import React from 'react'
 import { Buttons, Container, Content } from './styles'
-import { ReactComponent as Images } from '../../assets/images.svg'
-import { ArticleContainer } from '../Article/ArticleContainer'
-import { createArticles } from '../../request'
-import { useNavigate } from 'react-router-dom'
-import { LoginContext } from '../../context/LoginContext'
+import { ReactComponent as Images } from '../../../assets/images.svg'
+import { ArticleContainer } from '../../Article/ArticleContainer'
+import { updateArticles } from '../../../request'
+import { useNavigate, useParams } from 'react-router-dom'
+import { LoginContext } from '../../../context/LoginContext'
 
-export const CreateArticle = () => {
-  const [ article, setArticle ] = React.useState({title: '', subtitle: '', text: '', image: ''})
-  const [ vizualization, setVizualization ] = React.useState(false)
+export const EditArticle = ({articles}) => {
+  const {id} = useParams()
+  const [articleEdit] = articles?.filter(article => {
+      return article?.id === Number(id) 
+  })
+  const [article, setArticle] = React.useState({})
+  const [vizualization, setVizualization] = React.useState(false)
   const { setReload, reload } = React.useContext(LoginContext)
 
   const navigate = useNavigate()
+
   async function handleSubmit(event){
      event.preventDefault()
      const token = localStorage.getItem('token')
-     await createArticles(article, token)
-     navigate('/profile')
+     await updateArticles(article, token)
      setReload(!reload)
+     navigate('/profile')
   }
+
+  React.useEffect(() => {
+    setArticle(articleEdit)
+  }, [articleEdit])
+
   return (
     <Container>
         <Content onSubmit={handleSubmit}>

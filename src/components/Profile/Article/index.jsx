@@ -5,8 +5,7 @@ import { ReactComponent as Delete } from '../../../assets/delete.svg'
 import { ReactComponent as Edit } from '../../../assets/edit.svg'
 import { deleteArticles } from '../../../request'
 import { LoginContext } from '../../../context/LoginContext'
-import { Link, Route, Routes } from 'react-router-dom'
-import { CreateArticle } from '../../CreateArticle'
+import { Link } from 'react-router-dom'
 
 export const Article = ({article, set}) => {
   const [modal, setModal] = React.useState(false)
@@ -41,7 +40,7 @@ export const Article = ({article, set}) => {
           <button className='delete' onClick={handleModalDelete}>
             <Delete />
           </button>
-          <Link to="edit-article">
+          <Link to={"edit-article/" + article.id}>
             <Edit />
           </Link>
         </Settings>
