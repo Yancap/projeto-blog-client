@@ -28,7 +28,7 @@ function App() {
                 <Route path="/article/:id" element={<Article />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
-                <Route path="/profile" element={<Profile  user={user}/>} />
+                <Route path="/profile/*" element={<Profile  user={user}/>} />
                 <Route path="/profile/create-article" element={<CreateArticle  user={user}/>} />
               </Routes>
             </Main>

@@ -9,7 +9,6 @@ export const Comments = ({comment}) => {
   const [title, setTitle] = React.useState(null)
   React.useEffect(()=>{
     const article = getArticles(comment.article_id)
-    console.log(article);
     article.then(art => setTitle(art.title))
   },[])
   return (

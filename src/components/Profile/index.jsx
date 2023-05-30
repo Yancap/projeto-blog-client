@@ -15,6 +15,7 @@ export const Profile = ({user}) => {
   const [ avatar, setAvatar ] = React.useState(null)
   const {setReload, reload} = React.useContext(LoginContext)
   const navigate = useNavigate();
+
   async function getData(){
     const token = localStorage.getItem('token')
     const [art, comm] = await Promise.all([getUserArticles(token), getUserComments(token)])
@@ -35,7 +36,7 @@ export const Profile = ({user}) => {
     setAvatar(null)
     setReload(!reload)
   }
-  React.useEffect(()=> {getData()}, [])
+  React.useEffect(()=> {getData()}, [reload])
   return (
     <Container>
       <ContentProfile>
@@ -90,7 +91,9 @@ export const Profile = ({user}) => {
           ))}
         </div>
       </ContentDeeds>
-
+      <Routes>
+        <Route path="edit-article" element={<CreateArticle articleEdit={articles && articles[0]}/>}/>
+      </Routes>
     </Container>
   )
 }

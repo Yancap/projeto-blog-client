@@ -1,40 +1,68 @@
 import React from 'react'
-import { Container, Content, Image, Settings } from './styles'
+import { Container, Content, Image, ModalDelete, Settings } from './styles'
 import { ReactComponent as Clock } from '../../../assets/article/clock.svg'
 import { ReactComponent as Delete } from '../../../assets/delete.svg'
 import { ReactComponent as Edit } from '../../../assets/edit.svg'
 import { deleteArticles } from '../../../request'
+import { LoginContext } from '../../../context/LoginContext'
+import { Link, Route, Routes } from 'react-router-dom'
+import { CreateArticle } from '../../CreateArticle'
 
 export const Article = ({article, set}) => {
+  const [modal, setModal] = React.useState(false)
+  const {setReload, reload} = React.useContext(LoginContext)
+  function handleModalDelete(){
+    setModal(!modal)
+  }
   async function handleDelete(){
     const token = localStorage.getItem('token')
     await deleteArticles(article.id, token)
+    setReload(!reload)
   }
   return (
-    <Container>
-      <Image>
-        <img src={article.image} alt="" />
-      </Image>
-      <Content>
-        <h3>
-          {article.title}
-        </h3>
-        <span>
-          <Clock />
-          {new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}
-        </span>
-        <p>
-          {article.text}
-        </p>
-      </Content>
-      <Settings className={set && 'active'}>
-        <button className='delete' onClick={handleDelete}>
-          <Delete />
-        </button>
-        <button className='edit'>
-          <Edit />
-        </button>
-      </Settings>
-    </Container>
+    <>
+      <Container>
+        <Image>
+          <img src={article.image} alt="" />
+        </Image>
+        <Content>
+          <h3>
+            {article.title}
+          </h3>
+          <span>
+            <Clock />
+            {new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}
+          </span>
+          <p>
+            {article.text}
+          </p>
+        </Content>
+        <Settings className={set && 'active'}>
+          <button className='delete' onClick={handleModalDelete}>
+            <Delete />
+          </button>
+          <Link to="edit-article">
+            <Edit />
+          </Link>
+        </Settings>
+        {modal && 
+          <ModalDelete>
+            <div>
+              <strong>Confirmar a Exclusão do Artigo?</strong>
+              <i>OBS: Essa operação não tem volta</i>
+              <div className='buttons'>
+                <button onClick={handleDelete}>
+                  Sim
+                </button>
+                <button onClick={handleModalDelete}>
+                  Não
+                </button>
+              </div>
+            </div>
+          </ModalDelete>
+        }
+      </Container>
+      
+    </>
   )
 }

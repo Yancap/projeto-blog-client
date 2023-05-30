@@ -3,21 +3,23 @@ import { Buttons, Container, Content } from './styles'
 import { ReactComponent as Images } from '../../assets/images.svg'
 import { ArticleContainer } from '../Article/ArticleContainer'
 import { createArticles } from '../../request'
+import { useNavigate } from 'react-router-dom'
 
-export const CreateArticle = () => {
+export const CreateArticle = ({articleEdit}) => {
   const [article, setArticle] = React.useState({
-      title: '',
-      subtitle: '',
-      text: '',
-      image: '',
+      title: articleEdit.title || '',
+      subtitle: articleEdit.subtitle || '',
+      text: articleEdit.text || '',
+      image: articleEdit.image || '',
   })
   const [vizualization, setVizualization] = React.useState(false)
-  const [response, setResponse] = React.useState(null)
+  const navigate = useNavigate()
 
   async function handleSubmit(event){
      event.preventDefault()
      const token = localStorage.getItem('token')
      await createArticles(article, token)
+     navigate('/profile')
   }
   return (
     <Container>

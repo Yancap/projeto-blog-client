@@ -88,3 +88,47 @@ export const Settings = styled.div`
         background: var(--yellow);
     }
 `
+export const ModalDelete = styled.div`
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.27);
+    display: grid;
+    place-content: center;
+    > div{
+        display: flex;
+        flex-direction: column;
+        background: var(--background-primary);
+        height: 10rem;
+        width: 14rem;
+        padding: 1.5rem;
+        box-sizing: content-box;
+        border-radius: 0.5rem;
+        gap: .75rem;
+        text-align: center;
+        justify-content: center;
+        div.buttons{
+            display: flex;
+            justify-content: space-around;
+            button{
+                padding: .25rem 1rem;
+                font-size: 1.25rem;
+                border: none;
+                border-radius: .2rem;
+                transition: .25s ;
+            }
+            button:nth-child(1){
+                background: var(--red);
+                color: #fff;
+            }
+            button:hover{
+                filter: brightness(.9);
+            }
+        }
+    }
+    i{
+        font-size: 14px;
+    }
+`
