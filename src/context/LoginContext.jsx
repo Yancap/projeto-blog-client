@@ -18,12 +18,12 @@ export const LoginStorage = ({children}) =>{
             setIsLogged(false)
             navigate('/login')
         } else {
-            setIsLogged(true)
             setUser({
                 name: response.name,
                 hierarchy: response.hierarchy,
                 avatar: response.avatar
             })
+            setIsLogged(true)
         }
     }
     React.useEffect(()=>{

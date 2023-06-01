@@ -39,6 +39,9 @@ export const Info = styled.div`
         height: 6.5rem;
         width: 8rem;
         background-color: #ccc;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
         img{
             width: 100%;
             height: auto;
@@ -61,7 +64,7 @@ export const Articles = styled.div`
     h4{
         font-size: 14px;
         font-family: var(--font-text);
-        max-width: 20ch;
+        max-width: 18ch;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -71,7 +74,7 @@ export const Articles = styled.div`
         color: #575757;
         font-style: italic;
         font-family: var(--font-text);
-        max-width: 24ch;
+        max-width: 22ch;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

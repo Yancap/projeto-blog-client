@@ -17,7 +17,8 @@ export const Login = () => {
         localStorage.setItem('token', response.token)
         setUser({
             name: response.name,
-            hierarchy: response.hierarchy
+            hierarchy: response.hierarchy,
+            avatar: response.avatar
         })
         setIsLogged(true)
         navigate('/')

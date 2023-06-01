@@ -2,15 +2,24 @@ import React from 'react'
 import { Container, Content, Settings } from './styles'
 import { ReactComponent as Clock } from '../../../assets/article/clock.svg'
 import { ReactComponent as Delete } from '../../../assets/delete.svg'
-import { ReactComponent as Edit } from '../../../assets/edit.svg'
-import { getArticles } from '../../../request'
+import { deleteComments, getArticles } from '../../../request'
+import { LoginContext } from '../../../context/LoginContext'
 
 export const Comments = ({comment}) => {
   const [title, setTitle] = React.useState(null)
+  const {setReload, reload} = React.useContext(LoginContext)
+
+  async function handleDelete(){
+    const token = localStorage.getItem('token');
+    await deleteComments({article_id: comment.article_id, comments_id: comment.id}, token)
+    setReload(!reload)
+  }
+
   React.useEffect(()=>{
     const article = getArticles(comment.article_id)
     article.then(art => setTitle(art.title))
   },[])
+  
   return (
     <Container>
       <Content>
@@ -27,11 +36,8 @@ export const Comments = ({comment}) => {
         </p>
       </Content>
       <Settings>
-        <button className='delete'>
+        <button className='delete' onClick={handleDelete}>
           <Delete />
-        </button>
-        <button className='edit'>
-          <Edit />
         </button>
       </Settings>
     </Container>

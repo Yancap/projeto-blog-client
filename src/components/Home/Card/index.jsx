@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 
 export const Card = ({image, title, content, author, date, commentsLength, id}) => {
   return (
-    <Container data-id={id} key={id}>
+    <Container data-id={id} >
         <Link to={'article/' + id}>
             <Image>
                 <img src={image} alt={title} />
@@ -26,7 +26,7 @@ export const Card = ({image, title, content, author, date, commentsLength, id}) 
                         <span>{commentsLength}</span>
                     </div>
                     <div>
-                        <a href="">Acessar</a>
+                        <i>Acessar</i>
                         <Access />
                     </div>
                 </div>

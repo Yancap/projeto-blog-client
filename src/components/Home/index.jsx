@@ -25,6 +25,7 @@ export const Home = () => {
                         date={new Intl.DateTimeFormat('pt-BR').format(new Date(article[0]['created_at']))}
                         commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === article[0].id ? total + 1 : 0, 0) : 0}
                         id={article[0].id}
+                        
                     />
                 }
                 <div>
@@ -56,6 +57,7 @@ export const Home = () => {
                             date={new Intl.DateTimeFormat('pt-BR').format(new Date(art['created_at']))}
                             commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === art.id ? total + 1 : 0, 0) : 0}
                             id={art.id}
+                            key={art.id}
                         /> 
                     )
                 )}

@@ -13,7 +13,7 @@ export const Search = () => {
   const navigate = useNavigate()
   async function handleSubmit(event){
     event.preventDefault()
-    const {article} = await searchArticleByContent(search)
+    const article = await searchArticleByContent(search)
     setAux(search)
     setResult(article)
   }
@@ -48,7 +48,7 @@ export const Search = () => {
             </div>
         </ContentSearch>
         <ContentResult>
-            {result[0] ? 
+            {result ? 
                 result.map( art =>{
                     return <ArticleResult key={art.id} article={art} />
                 }) : 

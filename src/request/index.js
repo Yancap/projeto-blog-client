@@ -64,8 +64,10 @@ export async function getUserComments(token){
 
 // SEARCH REQUEST
 export async function searchArticleByContent(query){
-    const response =  await fetch(SRC + `search?title=${query}`)
+    const response =  await fetch(SRC + `search?content=${query}`)
     const article = await response.json()
+    console.log(article);
+
     return article
 }
 
@@ -155,6 +157,35 @@ export async function updateArticles(article, token){
         },
         body: JSON.stringify(article)
     })
+    const message = await response.json()
+    return message
+}
+
+
+// COMMENTS POST / PUT / DELETE
+export async function createComments(article, token){
+    const response =  await fetch(SRC + `comments/create`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify(article)
+    })
+    const message = await response.json()
+    return message
+}
+
+export async function deleteComments({article_id, comments_id}, token){
+    const response =  await fetch(SRC + `comments/delete`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({article_id, comments_id})
+    })
+    console.log({article_id, comments_id});
     const message = await response.json()
     return message
 }

@@ -6,7 +6,7 @@ export const Container = styled.div`
         flex-direction: column;
         width: 18rem;
         max-height: 30rem;
-        height: auto;
+        height: 100%;
         background-color: var(--background-article);
         border-radius: 6px;
         overflow: hidden;

@@ -44,12 +44,12 @@ export const Settings = styled.div`
     gap: .5rem;
     button{
         border: 0;
-        transition: filter .2s;
+        transition: all .2s;
         &:hover{
-            filter: brightness(1.5);
+            transform: scale(1.2);
         }
         path{
-            fill: #222;
+            fill: ;
         }
     }
 `

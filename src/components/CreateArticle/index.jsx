@@ -34,7 +34,7 @@ export const CreateArticle = () => {
                 />
             </div>
             <div className='text'>
-                <textarea type="text" placeholder='Texto do Artigo' rows='10' value={article?.text}
+                <textarea type="text" placeholder='Texto do Artigo' rows='10'
                     onChange={({currentTarget})=>{
                         const regex = /\\n/g
                         //Converte primeiro para string, pois apenas assim a flag \n aparece
@@ -66,7 +66,7 @@ export const CreateArticle = () => {
                 <button type='submit'>Publicar</button>
                 <button onClick={() =>{ 
                     setVizualization(!vizualization)
-                }}>{!vizualization ? "Pre-vizualição" : "Mostrar menos"}</button>
+                }} type='button'>{!vizualization ? "Pre-vizualição" : "Mostrar menos"}</button>
             </Buttons>
         </Content>
         {vizualization && <ArticleContainer article={article}/>}
