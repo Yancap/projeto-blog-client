@@ -14,9 +14,8 @@ export const EditArticle = ({articles}) => {
   const [article, setArticle] = React.useState({})
   const [vizualization, setVizualization] = React.useState(false)
   const { setReload, reload } = React.useContext(LoginContext)
-
   const navigate = useNavigate()
-
+  
   async function handleSubmit(event){
      event.preventDefault()
      const token = localStorage.getItem('token')

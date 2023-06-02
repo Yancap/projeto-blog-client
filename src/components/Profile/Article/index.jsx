@@ -40,9 +40,12 @@ export const Article = ({article, set}) => {
           <button className='delete' onClick={handleModalDelete}>
             <Delete />
           </button>
-          <Link to={"edit-article/" + article.id}>
-            <Edit />
-          </Link>
+          <button className='edit'>
+            <Link to={"edit-article/" + article.id}>
+              <Edit />
+            </Link>
+          </button>
+          
         </Settings>
         {modal && 
           <ModalDelete>
