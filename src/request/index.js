@@ -163,14 +163,14 @@ export async function updateArticles(article, token){
 
 
 // COMMENTS POST / PUT / DELETE
-export async function createComments(article, token){
+export async function createComments(comments, token){
     const response =  await fetch(SRC + `comments/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer ' + token
         },
-        body: JSON.stringify(article)
+        body: JSON.stringify(comments)
     })
     const message = await response.json()
     return message
@@ -185,7 +185,6 @@ export async function deleteComments({article_id, comments_id}, token){
         },
         body: JSON.stringify({article_id, comments_id})
     })
-    console.log({article_id, comments_id});
     const message = await response.json()
     return message
 }

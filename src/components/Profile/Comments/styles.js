@@ -49,7 +49,7 @@ export const Settings = styled.div`
             transform: scale(1.2);
         }
         path{
-            fill: ;
+            fill: #222;
         }
     }
 `
