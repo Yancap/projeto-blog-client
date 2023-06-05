@@ -4,10 +4,12 @@ import { ReactComponent as Clock } from '../../../assets/article/clock.svg'
 import { ReactComponent as Delete } from '../../../assets/delete.svg'
 import { deleteComments, getArticles } from '../../../request'
 import { LoginContext } from '../../../context/LoginContext'
+import { useNavigate } from 'react-router-dom'
 
 export const Comments = ({comment}) => {
-  const [title, setTitle] = React.useState(null)
+  const [article, setArticle] = React.useState(null)
   const {setReload, reload} = React.useContext(LoginContext)
+  const navigate = useNavigate()
 
   async function handleDelete(){
     const token = localStorage.getItem('token');
@@ -17,19 +19,18 @@ export const Comments = ({comment}) => {
 
   React.useEffect(()=>{
     const article = getArticles(comment.article_id)
-    article.then(art => setTitle(art.title))
-  },[])
-  
+    article.then(art => setArticle(art))
+  }, [])
   return (
     <Container>
       <Content>
         <h3>
           {comment.title}
         </h3>
-        <span>
+        <span onClick={() => navigate('/article/' + article?.id)}>
           <Clock />
           {new Intl.DateTimeFormat('pt-BR').format(new Date(comment['created_at']))} - 
-          {title}
+          {article?.title}
         </span>
         <p>
           {comment.text}

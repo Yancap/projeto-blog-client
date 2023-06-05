@@ -4,8 +4,10 @@ import styled from "styled-components";
 export const Container = styled.article`
     display: grid;
     grid-template-columns:  8fr 2fr;
-    height: 6rem;
-    
+    height: 4.5rem;
+    background: #e1e1e1;
+    box-sizing: content-box;
+    padding: .5rem .2rem;
 `
 
 export const Content = styled.div`
@@ -20,6 +22,10 @@ export const Content = styled.div`
         align-items: center;
         gap: .5rem;
         font-size: .9rem;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
         svg{
             height: .9rem;
             width: auto;

@@ -5,22 +5,24 @@ import { ReactComponent as Delete } from '../../../assets/delete.svg'
 import { ReactComponent as Edit } from '../../../assets/edit.svg'
 import { deleteArticles } from '../../../request'
 import { LoginContext } from '../../../context/LoginContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export const Article = ({article, set}) => {
   const [modal, setModal] = React.useState(false)
   const {setReload, reload} = React.useContext(LoginContext)
+  const navigate = useNavigate()
   function handleModalDelete(){
     setModal(!modal)
   }
   async function handleDelete(){
     const token = localStorage.getItem('token')
+    
     await deleteArticles(article.id, token)
     setReload(!reload)
   }
   return (
     <>
-      <Container>
+      <Container onClick={() => navigate('/article/' + article.id)}>
         <Image>
           <img src={article.image} alt="" />
         </Image>

@@ -5,8 +5,11 @@ export const Container = styled.article`
     display: grid;
     grid-template-columns: 3fr 8fr 1fr;
     min-height: 7.5rem;
-    max-height: 8rem;
-    
+    cursor: pointer;
+    transition: all .25s;
+    &:hover{
+        background: #e0e0e0;
+    }
 `
 export const Image = styled.div`
     background: #ccc;
@@ -16,6 +19,7 @@ export const Image = styled.div`
     place-items: center;
     min-height: 7.5rem;
     max-height: 8.5rem;
+    width: 140px;
     img{
         min-width: 100%;
         min-height: 100%;
