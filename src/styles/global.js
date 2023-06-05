@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         --background-secondary:#E0DFFB;
         --background-tertiary:#D0CEF9;
         --background-btn-search: #B1AFF6;
-        --background-article: #EFEFFD;
+        --background-article: #F6F6FE;
         --color-purple-dark: #070739;
         --color-span:#585788;
         --color-text: #383838;

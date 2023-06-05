@@ -8,7 +8,8 @@ export const Container = styled.div`
         max-height: 30rem;
         height: 100%;
         background-color: var(--background-article);
-        border-radius: 6px;
+        color: var(--color-border);
+        border-radius: .5rem;
         overflow: hidden;
         transition: 0.25s;
     }
@@ -34,10 +35,10 @@ export const Image = styled.div`
 `
 
 export const Content = styled.div`
-    padding: 12px;
+    padding: 1rem .75rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     gap: 8px;
     div{
@@ -49,17 +50,25 @@ export const Content = styled.div`
         font-weight: 500;
     }
     div.content{
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
         h3{
             font-weight: 700;
             font-size: 24px;
             line-height: 28px;
             color: var(--black);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
         p{
             font-weight: 400;
             font-size: 16px;
             color: var(--color-span);
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
         span{
             display: inline-block;

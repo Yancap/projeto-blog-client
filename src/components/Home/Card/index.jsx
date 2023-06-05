@@ -25,10 +25,6 @@ export const Card = ({image, title, content, author, date, commentsLength, id}) 
                         <Comments />
                         <span>{commentsLength}</span>
                     </div>
-                    <div>
-                        <i>Acessar</i>
-                        <Access />
-                    </div>
                 </div>
             </Content>    
         </Link>

@@ -17,7 +17,7 @@ export const Header = () => {
   const navigate = useNavigate()
   async function handleSubmit(event){
     event.preventDefault()
-    const {article} = await searchArticleByContent(search)
+    const article = await searchArticleByContent(search)
     setResult(article)
     navigate('/search')
   }

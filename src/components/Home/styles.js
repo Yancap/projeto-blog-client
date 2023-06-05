@@ -9,9 +9,8 @@ export const ContainerPrimary = styled.section`
     ;
     gap: 28px;
     width: 100%;
+    padding: 2rem 0 1rem 0;
     h2{
-        margin-bottom: calc((var(--margin-top-image) * -1));
-        margin-top: 24px;
         font-family: var(--font-title);
         font-weight: 700;
         font-size: 2.75rem;
@@ -33,7 +32,7 @@ export const ContainerPrimary = styled.section`
             margin-bottom: 8px;
         }
         .container-comments{
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.15);
             background-color: var(--background-article);
             padding: 6px;
             li{
@@ -52,7 +51,7 @@ export const ContainerPrimary = styled.section`
 `
 
 export const ContainerArticles = styled.section`
-    
+    padding: 1rem 0 3rem 0;
     margin-top: 5rem;
     h2{
         font-family: 'Tinos';
