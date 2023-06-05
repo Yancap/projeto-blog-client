@@ -8,12 +8,10 @@ import {  getAllCommentsForArticles, getArticlesForHome } from '../../request'
 export const Home = () => {
   const [article, setArticle] = React.useState(null)
   const [comments, setComments] = React.useState(null)
-  async function getData(){
-      const [art, comm] = await Promise.all([getArticlesForHome(), getAllCommentsForArticles(1)]) 
-      setArticle(art)
-      setComments(comm)
-  }
-  React.useEffect(() => {getData()}, [])
+  React.useEffect(()=>{
+    getArticlesForHome().then(data => setArticle(data))
+    getAllCommentsForArticles(1).then(data => setComments(data))
+  }, [])
   return (
     <>
         <ContainerPrimary>
@@ -27,6 +25,7 @@ export const Home = () => {
                         date={new Intl.DateTimeFormat('pt-BR').format(new Date(article[0]['created_at']))}
                         commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === article[0].id ? total + 1 : 0, 0) : 0}
                         id={article[0].id}
+                        
                     />
                 }
                 <div>
@@ -58,6 +57,7 @@ export const Home = () => {
                             date={new Intl.DateTimeFormat('pt-BR').format(new Date(art['created_at']))}
                             commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === art.id ? total + 1 : 0, 0) : 0}
                             id={art.id}
+                            key={art.id}
                         /> 
                     )
                 )}

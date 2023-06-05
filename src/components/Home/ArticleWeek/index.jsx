@@ -22,12 +22,12 @@ export const ArticleWeek = ({image, title, content, author, date, commentsLength
                 <span>Por: <strong>{author}</strong></span>
                 <div>
                     <Comments />
-                    <span>{commentsLength}</span>
+                    <p>{commentsLength}</p>
                 </div>
             </div>
             <div className='link'>
                 <Link to={'article/' + id}>
-                    <a href="">Acessar</a>
+                    <i>Acessar</i>
                     <Access />
                 </Link>
             </div>

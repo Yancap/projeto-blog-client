@@ -48,7 +48,7 @@ export const Search = () => {
             </div>
         </ContentSearch>
         <ContentResult>
-            {result[0] ? 
+            {result && result[0] !== undefined ? 
                 result.map( art =>{
                     return <ArticleResult key={art.id} article={art} />
                 }) : 

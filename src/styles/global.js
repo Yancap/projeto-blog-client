@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
         --background-secondary:#E0DFFB;
         --background-tertiary:#D0CEF9;
         --background-btn-search: #B1AFF6;
-        --background-article: #EFEFFD;
+        --background-article: #F6F6FE;
         --color-purple-dark: #070739;
         --color-span:#585788;
         --color-text: #383838;
@@ -15,10 +15,13 @@ export const GlobalStyle = createGlobalStyle`
         --black: #1C0013;
         --white: #fff;
         --color-border:#4745B8;
+        --red: #FF7070;
+        --yellow: #EBE081;
 
         --font-text: 'Roboto', Helvetica, sans-serif;
         --font-title: 'Tinos', serif;
         --font-functional: 'Roboto Condensed', Helvetica, sans-serif ;
+        --margin-top-image: -2rem;
     }
     #root{
         display: flex;
@@ -31,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     html{
-        /* Configuração IMPORTANTE!!! */
+        /* Configuração IMPORTANTE!! */
         @media (max-width: 1080px) {
             font-size: 93.75%;
         }

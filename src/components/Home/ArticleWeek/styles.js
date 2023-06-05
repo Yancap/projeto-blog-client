@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const Article = styled.div`
-    background: var(--background-article);
+    background-color: var(--background-article);
+    box-sizing: border-box;
+    padding: .5rem;
     border-radius: 4px;
     width: 35rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25), 2px 2px 2px rgba(0, 0, 0, 0.15);
+    box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.25);
     @media screen and (max-width: 600px){
         width: 100%;
         max-width: 30rem;
@@ -16,13 +18,18 @@ export const Article = styled.div`
 `
 
 export const Image = styled.div`
-    margin-top: var(--margin-top-image);
+    /* margin-top: var(--margin-top-image); */
+    height: 15rem;
     width: 26rem;
     border-radius: 4px;
+    border: 2px solid var(--background-article);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     img{
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
     }
     @media screen and (max-width: 450px){
         width: 20rem;
@@ -32,7 +39,7 @@ export const Image = styled.div`
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     padding: 12px;
     div{
         width: 100%;
@@ -42,35 +49,37 @@ export const Content = styled.div`
         text-align: center;
     }
     div.date span{
-        font-size: 12px;
-        color: var(--color-span);
+        font-size: 14px;
+        color: var(--color-border);
         font-weight: 500;
     }
     div.content{
         margin-bottom: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
         h4{
             font-weight: 700;
             font-size: 1.75rem;
-            line-height: 28px;
             color: var(--black);
         }
         p{
             font-weight: 400;
             font-size: 1rem;
-            line-height: 19px;
             color: var(--color-span);
         }
     }
     div.info{
         span{
-            font-style: italic;
             font-size: 16px;
-            line-height: 19px;
             color: var(--color-span);
-            font-weight: 500;
+            font-weight: 300;
         }
         strong{
             color: var(--color-purple-dark);
+        }
+        p {
+            color: var(--color-border);
         }
         div {
             display: flex;
