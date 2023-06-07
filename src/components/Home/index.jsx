@@ -11,12 +11,13 @@ export const Home = () => {
   React.useEffect(()=>{
     getArticlesForHome().then(data => setArticle(data))
     getAllCommentsForArticles(1).then(data => setComments(data))
+    
   }, [])
   return (
     <>
         <ContainerPrimary>
                 <h2>Artigo da Semana</h2>
-                {article && 
+                {article && article[0] !== undefined && 
                     <ArticleWeek 
                         image={article[0].image}
                         title={article[0].title}
@@ -32,12 +33,12 @@ export const Home = () => {
                     <h3>Comentários</h3>
                     <div className='container-comments'>
                         {comments?.map(comment => (
-                            <li key={comment.id}>
+                            <li key={comment?.id}>
                                 <Comments 
-                                    author={comment.name}
+                                    author={comment?.name}
                                     date={new Intl.DateTimeFormat('pt-BR').format(new Date(comment['created_at']))}
-                                    title={comment.title}
-                                    text={comment.text}
+                                    title={comment?.title}
+                                    text={comment?.text}
                                 />
                             </li>
                         ))}

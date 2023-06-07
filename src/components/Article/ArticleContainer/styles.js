@@ -51,7 +51,6 @@ export const Text = styled.div`
     div.image{
         width: 21.225rem;
         height: 16.25rem;
-        background-color: #ccc;
         float: left;
         margin-right: 1rem;
         margin-bottom: 1rem;
@@ -59,7 +58,7 @@ export const Text = styled.div`
         place-items: center;
         overflow: hidden;
         img{
-            max-width: 100%;
+            max-width: 120%;
             height: auto;
         }
         @media screen and (max-width: 790px){

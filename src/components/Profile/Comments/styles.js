@@ -4,31 +4,36 @@ import styled from "styled-components";
 export const Container = styled.article`
     display: grid;
     grid-template-columns:  8fr 2fr;
-    height: 4.5rem;
-    background: #e1e1e1;
-    box-sizing: content-box;
-    padding: .5rem .2rem;
+    width: 100%;
+    background-color: #ededed;
+    padding: .5rem 1rem;
 `
 
 export const Content = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: .5rem;
     h3{
         font-size: 1.25rem;
     }
     span{
-        display: flex;
-        align-items: center;
-        gap: .5rem;
         font-size: .9rem;
+        max-width: 60ch;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         cursor: pointer;
         &:hover{
             text-decoration: underline;
         }
         svg{
+            display: inline-block;
             height: .9rem;
             width: auto;
+            margin-right: .35rem;
+            top: 50%;
+            position: relative;
+            transform: translateY(-50%);
         }
         path{
             fill: #282773;

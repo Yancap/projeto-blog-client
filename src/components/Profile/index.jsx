@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Main } from './Main'
 import { EditArticle } from './EditArticle'
 
-export const Profile = ({user}) => {
+export const Profile = () => {
   const [ articles, setArticles ] = React.useState(null)
   const [ comments, setComments ] = React.useState(null)
   const { reload } = React.useContext(LoginContext)
@@ -21,7 +21,7 @@ export const Profile = ({user}) => {
   return (
       <Routes>
         <Route path="edit-article/:id" element={<EditArticle articles={articles && articles}/>}/>
-        <Route path="/" element={<Main user={user} comments={comments} articles={articles}/>} />
+        <Route path="/" element={<Main comments={comments} articles={articles}/>} />
       </Routes>
   )
 }

@@ -14,19 +14,25 @@ export const Container = styled.main`
 export const ContentProfile = styled.section`
     display: flex;
     gap: 1rem;
+    
     div.avatar{
-        height: 12rem;
-        width: 12rem;
+        height: 14rem;
+        width: 14rem;
         overflow: hidden;
         border-radius: .25rem;
         display: flex;
         flex-direction: column;
         img{
             height: auto;
-            min-height: calc(100% - 1.5rem);
+            min-height: calc(100% - 3.5rem);
             width: 100%;
             background: #ddd;
         }
+        &:hover{
+        form{
+            visibility: visible;
+        }
+    }
     }
 
     div.user{
@@ -60,7 +66,9 @@ export const ContentProfile = styled.section`
     }
 `
 export const AddAvatar = styled.form`
-
+    display: grid;
+    visibility: hidden;
+    grid-template-columns: 2fr 1fr;
     input{
         display: none;
     }
@@ -80,6 +88,10 @@ export const AddAvatar = styled.form`
         &:hover{
             filter: brightness(.9);
         }
+    }
+    button{
+        background: var(--color-purple-dark);
+        color: #fff;
     }
 `
 

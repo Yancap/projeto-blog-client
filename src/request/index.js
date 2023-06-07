@@ -1,4 +1,4 @@
-export const SRC = 'https://artech-api.onrender.com/'
+export const SRC = /* 'https://artech-api.onrender.com/' || */ 'http://localhost:3001/'
 
 
 // ARTICLE AND COMMENTS GET

@@ -6,7 +6,7 @@ import { ReactComponent as Logo } from '../../../assets/logo-light.svg'
 export const ArticleContainer = ({article}) => {
   const regex = /\\n/g //regex que verifica a flag '\n'
   const text = article.text?.split(regex) //retira a flag do texto
-
+  console.log(article);
   return (
     <Container>
         <LabelLogo>
@@ -14,14 +14,14 @@ export const ArticleContainer = ({article}) => {
         </LabelLogo>
         <Content>
             <h1>
-                {article.title}
+                {article?.title}
             </h1>
             <h3>
-                {article.subtitle}
+                {article?.subtitle}
             </h3>
             <Text>
                 <div className="image">
-                    <img src={article.image} alt="" />
+                    <img src={article?.image} alt="" />
                 </div>
                 {article['created_at'] && 
                     <span>
@@ -29,7 +29,7 @@ export const ArticleContainer = ({article}) => {
                         <strong>
                             {new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}
                         </strong>
-                        - {article.author}
+                        - {article?.author}
                     </span>
                 }
                 <p>

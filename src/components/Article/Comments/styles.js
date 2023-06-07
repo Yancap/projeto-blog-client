@@ -49,7 +49,7 @@ export const Title = styled.h4`
     font-weight: 700;
     font-size: 20px;
     color: var(--color-purple-dark);
-    max-width: 30ch;
+    max-width: 60ch;
     line-break: normal;
     overflow: hidden;
     text-overflow: ellipsis;

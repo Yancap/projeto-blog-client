@@ -44,6 +44,16 @@ export const Form = styled.form`
         padding: .25rem .5rem;
         font-size: 1rem;
     }
+    span{
+        font-size: 12px;
+        font-weight: bold;
+        &.error{
+            color: var(--red);
+        }
+        &.success{
+           color: var(--green); 
+        }
+    }
     button{
         align-self: flex-start;
         border: none;

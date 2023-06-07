@@ -7,10 +7,10 @@ import {  changeAvatar } from '../../../request'
 import { LoginContext } from '../../../context/LoginContext'
 import { useNavigate } from 'react-router-dom'
 
-export const Main = ({user, articles, comments}) => {
+export const Main = ({ articles, comments}) => {
   const [ settings, setSettings ] = React.useState(false)
   const [ avatar, setAvatar ] = React.useState(null)
-  const {setReload, reload} = React.useContext(LoginContext)
+  const {setReload, reload, user} = React.useContext(LoginContext)
   const navigate = useNavigate();
 
   
@@ -35,16 +35,13 @@ export const Main = ({user, articles, comments}) => {
           <div className='avatar'>
               <img src={avatar || user.avatar} alt="Avatar" />
               <AddAvatar onSubmit={handleSubmit}>
-                {!avatar && user.avatar ? 
                 <>
                   <label htmlFor="avatar">{!user.avatar ? 'Adicionar ' : 'Trocar de '}Avatar</label>
                   <input type="file" id="avatar" onChange={handleChange}/>
-                </> : 
-                <>
                   <button type='submit'>
                     Enviar
                   </button>
-                </>}
+                </> 
               </AddAvatar>
           </div>
           <div className='user'>
@@ -61,7 +58,7 @@ export const Main = ({user, articles, comments}) => {
             
           </div>
         </ContentProfile>
-
+        {user.hierarchy !== 'reader' ? 
         <ContentDeeds>
           <div className='header'>
             <h2>Seus Artigos</h2>
@@ -73,6 +70,8 @@ export const Main = ({user, articles, comments}) => {
             ))}
           </div>
         </ContentDeeds>
+        : null}
+
         <ContentDeeds>
           <div className='header'>
             <h2>Seus Comentários</h2>

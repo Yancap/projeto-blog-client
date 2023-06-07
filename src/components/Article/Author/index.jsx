@@ -36,8 +36,8 @@ export const Author = ({id}) => {
         <Articles>
           {articles?.map(art => (
             <div onClick={() => navigate('/article/' + art.id)}>
-              <h4>{art.title}</h4>
-              <p>{art.subtitle}</p>
+              <h4>{art?.title}</h4>
+              <p>{art?.subtitle}</p>
             </div>
           ))}
         </Articles>
