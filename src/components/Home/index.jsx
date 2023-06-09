@@ -32,16 +32,21 @@ export const Home = () => {
                 <div>
                     <h3>Comentários</h3>
                     <div className='container-comments'>
-                        {comments?.map(comment => (
-                            <li key={comment?.id}>
-                                <Comments 
-                                    author={comment?.name}
-                                    date={new Intl.DateTimeFormat('pt-BR').format(new Date(comment['created_at']))}
-                                    title={comment?.title}
-                                    text={comment?.text}
-                                />
-                            </li>
-                        ))}
+                        {comments?.map((comment, index) => {
+                            if (index < 6) {
+                                return (
+                                    <li key={comment?.id}>
+                                        <Comments 
+                                            author={comment?.name}
+                                            date={new Intl.DateTimeFormat('pt-BR').format(new Date(comment['created_at']))}
+                                            title={comment?.title}
+                                            text={comment?.text}
+                                        />
+                                    </li>
+                                )
+                            }
+                            return null
+                        })}
                     </div>
                 </div>
         </ContainerPrimary>
@@ -56,7 +61,6 @@ export const Home = () => {
                             content={art.subtitle}
                             author={art.author}
                             date={new Intl.DateTimeFormat('pt-BR').format(new Date(art['created_at']))}
-                            commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === art.id ? total + 1 : 0, 0) : 0}
                             id={art.id}
                             key={art.id}
                         /> 

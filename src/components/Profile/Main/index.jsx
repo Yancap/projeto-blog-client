@@ -26,7 +26,11 @@ export const Main = ({ articles, comments}) => {
     const token = localStorage.getItem('token')
     await changeAvatar(avatar, token)
     setAvatar(null)
+  }
+  function handleLogout(){
+    localStorage.removeItem('token')
     setReload(!reload)
+    navigate('/')
   }
   return (
     <>
@@ -45,7 +49,12 @@ export const Main = ({ articles, comments}) => {
               </AddAvatar>
           </div>
           <div className='user'>
-            <h1>{user.name}</h1>
+            <h1 >
+              {user.name}
+              <button onClick={handleLogout}>
+                Sair
+              </button>
+            </h1>
             <span>
               {
                 user.hierarchy === 'reader' ? "Leitor" : 
@@ -55,8 +64,9 @@ export const Main = ({ articles, comments}) => {
             {
               user.hierarchy === 'reader' ? null : <button onClick={() => navigate('/profile/create-article')}>Criar Artigo</button>
             }
-            
           </div>
+          
+          
         </ContentProfile>
         {user.hierarchy !== 'reader' ? 
         <ContentDeeds>

@@ -14,12 +14,14 @@ import { SearchStorage } from "./context/SearchContext";
 import { GlobalStyle } from "./styles/global";
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { CreateArticle } from "./components/CreateArticle";
+import { Loading } from "./components/Loading";
 
 function App() {
   const {user} = React.useContext(LoginContext)
   return (
       <>
             <GlobalStyle />
+            {/* <Loading /> */}
             <Header />
             <Main >
               <Routes>

@@ -12,7 +12,8 @@ export const Container = styled.main`
 `
 
 export const ContentProfile = styled.section`
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
     
     div.avatar{
@@ -39,11 +40,16 @@ export const ContentProfile = styled.section`
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        grid-column: span 2 / span 3;
         h1{
             font-family: 'Tinos';
             font-weight: 700;
             font-size: 2.5rem;
             color: #FFFFFF;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
         }
         span{
             font-weight: 400;
@@ -62,6 +68,21 @@ export const ContentProfile = styled.section`
             &:hover{
                 filter: brightness(.9);
             }
+        }
+    }
+    
+    button{
+        justify-self: flex-end;
+        color: #fff;
+        filter: brightness(.95);
+        border-radius: .2rem;
+        cursor: pointer;
+        background: var(--red);
+        padding: .25rem 1rem;
+        border: none;
+        transition: all .2s;
+        &:hover{
+            filter: brightness(1);
         }
     }
 `

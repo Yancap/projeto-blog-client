@@ -19,7 +19,8 @@ export const EditArticle = ({articles}) => {
   async function handleSubmit(event){
      event.preventDefault()
      const token = localStorage.getItem('token')
-     await updateArticles(article, token)
+     const response = await updateArticles(article, token)
+     alert(response)
      setReload(!reload)
      navigate('/profile')
   }

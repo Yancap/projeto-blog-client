@@ -4,7 +4,7 @@ import { ReactComponent as Comments } from '../../../assets/article/comments.svg
 import { ReactComponent as Access } from '../../../assets/article/access.svg'
 import { Link } from 'react-router-dom'
 
-export const Card = ({image, title, content, author, date, commentsLength, id}) => {
+export const Card = ({image, title, content, author, date, id}) => {
   return (
     <Container data-id={id} >
         <Link to={'article/' + id}>
@@ -19,12 +19,6 @@ export const Card = ({image, title, content, author, date, commentsLength, id}) 
                     <h3>{title}</h3>
                     <p>{content}</p>
                     <span>Por <strong>{author}</strong></span>
-                </div>
-                <div className='link'>
-                    <div>
-                        <Comments />
-                        <span>{commentsLength}</span>
-                    </div>
                 </div>
             </Content>    
         </Link>
