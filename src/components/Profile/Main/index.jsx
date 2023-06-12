@@ -6,6 +6,7 @@ import { ReactComponent as Settings } from '../../../assets/settings.svg'
 import {  changeAvatar } from '../../../request'
 import { LoginContext } from '../../../context/LoginContext'
 import { useNavigate } from 'react-router-dom'
+import { Loading } from '../../Loading'
 
 export const Main = ({ articles, comments}) => {
   const [ settings, setSettings ] = React.useState(false)
@@ -34,6 +35,7 @@ export const Main = ({ articles, comments}) => {
   }
   return (
     <>
+    {!articles && !comments && <Loading />}
       <Container>
         <ContentProfile>
           <div className='avatar'>

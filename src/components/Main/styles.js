@@ -5,6 +5,7 @@ export const Container = styled.main`
     max-width: 100vw;
     padding: .75rem 0rem;
     min-height: calc(100vh - 9.5rem);
+    position: relative;
 `
 
 export const Content = styled.div`

@@ -8,20 +8,17 @@ import { Profile } from "./components/Profile";
 import { Search } from "./components/Search";
 import { Login } from "./components/User/Login";
 import { Register } from "./components/User/Register";
-import { ArticleStorage } from "./context/ArticleContext";
-import { LoginContext, LoginStorage } from "./context/LoginContext";
-import { SearchStorage } from "./context/SearchContext";
+import { LoginContext} from "./context/LoginContext";
 import { GlobalStyle } from "./styles/global";
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import {  Route, Routes } from 'react-router-dom'
 import { CreateArticle } from "./components/CreateArticle";
-import { Loading } from "./components/Loading";
 
 function App() {
   const {user} = React.useContext(LoginContext)
   return (
       <>
             <GlobalStyle />
-            {/* <Loading /> */}
+            
             <Header />
             <Main >
               <Routes>

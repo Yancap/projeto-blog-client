@@ -10,8 +10,10 @@ export const Login = () => {
   })
   const {setIsLogged, setUser} = React.useContext(LoginContext)
   const navigate = useNavigate()
+  const [ loading, setLoading ] = React.useState()
   async function handleSubmit(event){
     event.preventDefault()
+    setLoading(true)
     const response = await loginRequest(login)
     if (response.token && response.name && response.hierarchy) {
         localStorage.setItem('token', response.token)
@@ -21,8 +23,10 @@ export const Login = () => {
             avatar: response.avatar
         })
         setIsLogged(true)
+        setLoading(false)
         navigate('/')
     }
+    
   }
   return (
     <Container>
@@ -42,7 +46,9 @@ export const Login = () => {
                     })}/>
                 </div>
                 <Link to={'/register'}>Não tem cadastro?</Link>
-                <Submit>Entrar</Submit>
+                <Submit className={loading && "loading"}>
+                    {loading ? "Enviando" : "Entrar"}
+                </Submit>
             </Form>
         </Content>
     </Container>

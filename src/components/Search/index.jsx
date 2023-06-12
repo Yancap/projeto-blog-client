@@ -24,38 +24,41 @@ export const Search = () => {
     setAux(search)
   }, [])
   return (
-    <Container> 
-        <ContentSearch>
-            <div className='result'>
-                <span>
-                    <strong>{aux}</strong>  - Resultado da Pesquisa
-                </span>
-            </div>
-            <div className='search'>
-                <div onClick={() => {
-                    navigate('/')
-                    setSearch('')
-                    setResult([])
-                    }}>
-                    <Arrow />
+    <>
+        <Container> 
+            <ContentSearch>
+                <div className='result'>
+                    <span>
+                        <strong>{aux}</strong>  - Resultado da Pesquisa
+                    </span>
                 </div>
-                <form action="" onSubmit={handleSubmit}>
-                    <input type="text" value={search} onChange={handleChange}/>
-                    <button type="submit">
-                        <SearchIcon />
-                    </button>
-                </form>
-            </div>
-        </ContentSearch>
-        <ContentResult>
-            {result && result[0] !== undefined ? 
-                result.map( art =>{
-                    return <ArticleResult key={art.id} article={art} />
-                }) : 
-                <span>
-                    Sem Resultados
-                </span>}
-        </ContentResult>
-    </Container>
+                <div className='search'>
+                    <div onClick={() => {
+                        navigate('/')
+                        setSearch('')
+                        setResult([])
+                        }}>
+                        <Arrow />
+                    </div>
+                    <form action="" onSubmit={handleSubmit}>
+                        <input type="text" value={search} onChange={handleChange}/>
+                        <button type="submit">
+                            <SearchIcon />
+                        </button>
+                    </form>
+                </div>
+            </ContentSearch>
+            <ContentResult>
+                {result && result[0] !== undefined ? 
+                    result.map( art =>{
+                        return <ArticleResult key={art.id} article={art} />
+                    }) : 
+                    <span>
+                        Sem Resultados
+                    </span>}
+            </ContentResult>
+        </Container>
+    </>
+   
   )
 }

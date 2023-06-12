@@ -8,11 +8,14 @@ export const Register = () => {
     name: '', email: '', password: ''
   })
   const [ response, setResponse ] = React.useState()
+  const [ loading, setLoading ] = React.useState()
   const navigate = useNavigate()
   async function handleSubmit(event) {
     event.preventDefault()
+    setLoading(true)
     const resp = await registerRequest(register)
     setResponse(resp)
+    setLoading(false)
     if (resp.message === 'OK') {
         navigate('/login')
     }
@@ -42,7 +45,7 @@ export const Register = () => {
                     })}/>
                 </div>
                 <Link to={'/login'}>Já tem cadastro?</Link>
-                <Submit>Enviar</Submit>
+                <Submit>{loading ? "Enviando" : "Enviar"}</Submit>
             </Form>
         </Content>
     </Container>

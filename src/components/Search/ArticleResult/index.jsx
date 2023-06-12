@@ -19,9 +19,9 @@ export const ArticleResult = ({article}) => {
                     <span>{new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))} - {article.author}</span>
                 </div>
             </div>
-            <p>{
-                article.text.slice(0, 230)
-                }...</p>
+            <p> 
+                {article.text}
+            </p>
         </Content>
     </Container>
   )

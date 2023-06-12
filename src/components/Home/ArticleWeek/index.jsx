@@ -4,29 +4,25 @@ import { ReactComponent as Comments } from '../../../assets/article/comments.svg
 import { ReactComponent as Access } from '../../../assets/article/access.svg'
 import { Link } from 'react-router-dom'
 
-export const ArticleWeek = ({image, title, content, author, date, commentsLength, id}) => {
+export const ArticleWeek = ({article}) => {
   return (
-    <Article data-id={id}>
+    <Article data-id={article?.id} className={!article && 'loading'}>
         <Image>
-            <img src={image} alt="article image" />
+            <img src={article?.image} alt="" />
         </Image>
         <Content>
             <div className='date'>
-                <span>{date}</span>
+                <span>{article && new Intl.DateTimeFormat('pt-BR').format(new Date(article['created_at']))}</span>
             </div>
             <div className='content'>
-                <h4>{title}</h4>
-                <p>{content}</p>
+                <h4>{article?.title}</h4>
+                <p>{article?.subtitle}</p>
             </div>
             <div className='info'>
-                <span>Por: <strong>{author}</strong></span>
-                <div>
-                    <Comments />
-                    <p>{commentsLength}</p>
-                </div>
+                <span>Por: <strong>{article?.author}</strong></span>
             </div>
             <div className='link'>
-                <Link to={'article/' + id}>
+                <Link to={'article/' + article?.id}>
                     <i>Acessar</i>
                     <Access />
                 </Link>

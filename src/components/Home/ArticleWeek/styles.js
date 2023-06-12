@@ -6,6 +6,7 @@ export const Article = styled.div`
     padding: .5rem;
     border-radius: 4px;
     width: 35rem;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -14,6 +15,15 @@ export const Article = styled.div`
     @media screen and (max-width: 600px){
         width: 100%;
         max-width: 30rem;
+    }
+    &.loading{
+        background-color: #aaa;
+        + div{
+            background-color: #eee;
+            width: 30rem;
+            height: 14rem;
+            border: 0 none;
+        }
     }
 `
 

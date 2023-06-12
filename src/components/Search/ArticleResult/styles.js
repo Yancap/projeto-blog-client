@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: grid;
     grid-template-columns: 10rem 5fr;
-    grid-auto-rows: 7rem;
+    grid-auto-rows: 8rem;
     gap: .75rem;
     cursor: pointer;
     padding: 8px 4px;
@@ -82,11 +82,11 @@ export const Content = styled.div`
             justify-content: space-around;
         }
     }
-    p::first-line{
+    p{
         overflow: hidden;
-        max-width: 10px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
     @media screen and (max-width: 350px) {
         text-align: center;

@@ -2,6 +2,7 @@ import React from 'react'
 import { ArticleWeek } from './ArticleWeek'
 import { ContainerArticles, ContainerPrimary } from './styles'
 import { Comments } from './Comments'
+import { Loading } from '../Loading'
 import { Card } from './Card'
 import {  getAllCommentsForArticles, getArticlesForHome } from '../../request'
 
@@ -15,18 +16,12 @@ export const Home = () => {
   }, [])
   return (
     <>
+        {!article && <Loading />}
         <ContainerPrimary>
                 <h2>Artigo da Semana</h2>
                 {article && article[0] !== undefined && 
                     <ArticleWeek 
-                        image={article[0].image}
-                        title={article[0].title}
-                        content={article[0].subtitle}
-                        author={article[0].author}
-                        date={new Intl.DateTimeFormat('pt-BR').format(new Date(article[0]['created_at']))}
-                        commentsLength={comments ? comments.reduce((total, comment) => comment['article_id'] === article[0].id ? total + 1 : 0, 0) : 0}
-                        id={article[0].id}
-                        
+                        article={article[0]}
                     />
                 }
                 <div>

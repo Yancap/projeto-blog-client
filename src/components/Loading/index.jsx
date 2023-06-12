@@ -1,10 +1,12 @@
 import React from 'react'
-import { Container } from './styles'
+import { Container, Spinner } from './styles'
 
 export const Loading = () => {
   return (
     <Container>
-      Loading
+      <Spinner>
+        <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
+      </Spinner>
     </Container>
   )
 }

@@ -57,4 +57,7 @@ export const Submit = styled.button`
     font-family: var(--font-title);
     padding: .2rem 1rem;
     border-radius: .25rem;
+    &.loading{
+        filter: saturate(.1) contrast(.6);
+    }
 `
