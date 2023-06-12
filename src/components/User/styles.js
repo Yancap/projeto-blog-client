@@ -61,3 +61,7 @@ export const Submit = styled.button`
         filter: saturate(.1) contrast(.6);
     }
 `
+
+const Datas = styled.div`
+
+`

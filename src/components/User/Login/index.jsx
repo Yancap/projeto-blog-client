@@ -29,28 +29,51 @@ export const Login = () => {
     
   }
   return (
-    <Container>
-        <Content>
-            <Title>LOGIN</Title>
-            <Form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input type="email" name="email" id="email" onChange={({currentTarget}) => setLogin({
-                        ...login, ['email']: currentTarget.value
-                    })}/>
-                </div>
-                <div>
-                    <label htmlFor="password">Senha</label>
-                    <input type="password" name="password" id="password" onChange={({currentTarget}) => setLogin({
-                        ...login, ['password']: currentTarget.value
-                    })}/>
-                </div>
-                <Link to={'/register'}>Não tem cadastro?</Link>
-                <Submit className={loading && "loading"}>
-                    {loading ? "Enviando" : "Entrar"}
-                </Submit>
-            </Form>
-        </Content>
-    </Container>
+      <>
+        <Container>
+            <Content>
+                <Title>LOGIN</Title>
+                <Form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="email">Email</label>
+                        <input type="email" name="email" id="email" onChange={({currentTarget}) => setLogin({
+                            ...login, ['email']: currentTarget.value
+                        })}/>
+                    </div>
+                    <div>
+                        <label htmlFor="password">Senha</label>
+                        <input type="password" name="password" id="password" onChange={({currentTarget}) => setLogin({
+                            ...login, ['password']: currentTarget.value
+                        })}/>
+                    </div>
+                    <Link to={'/register'}>Não tem cadastro?</Link>
+                    <Submit className={loading && "loading"}>
+                        {loading ? "Enviando" : "Entrar"}
+                    </Submit>
+                </Form>
+            </Content>
+        </Container>
+        <div>
+            <div>
+                <h3>ADM</h3>
+                <p>
+                    Email: yan@email.com
+                </p>
+                <p>
+                    Senha: 123
+                </p>
+            </div>
+            <div>
+                <h3>Leitor</h3>
+                <p>
+                    Email: jonhdoe@email.com
+                </p>
+                <p>
+                    Senha: 123
+                </p>
+            </div>
+        </div>
+      </>
+
   )
 }
