@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+`
+export const  Content = styled.div`
     padding: 2.5rem;
     background: var(--background-primary);
     border-radius: 4px;
     width: 60%;
     justify-self: self-start;
     align-self: center;
-`
-export const  Content = styled.div`
-    
+    @media screen and (max-width: 600px){
+        width: 100%;
+    }
 `
 
 export const Title = styled.h1`
@@ -62,6 +67,13 @@ export const Submit = styled.button`
     }
 `
 
-const Datas = styled.div`
-
+export const Datas = styled.div`
+    opacity:.4;
+    padding: 2.75rem;
+    div{
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+        margin-bottom: 1rem;
+    }
 `

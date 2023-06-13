@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Content, Form, Submit, Title } from '../styles'
+import { Container, Content, Datas, Form, Submit, Title } from '../styles'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginRequest } from '../../../request'
 import { LoginContext } from '../../../context/LoginContext'
@@ -52,27 +52,29 @@ export const Login = () => {
                     </Submit>
                 </Form>
             </Content>
+            <Datas>
+                <i>Contas para teste</i>
+                <div>
+                    <h3>ADM</h3>
+                    <p>
+                        Email: yan@email.com
+                    </p>
+                    <p>
+                        Senha: 123
+                    </p>
+                </div>
+                <div>
+                    <h3>Leitor</h3>
+                    <p>
+                        Email: jonhdoe@email.com
+                    </p>
+                    <p>
+                        Senha: 123
+                    </p>
+                </div>
+            </Datas>
         </Container>
-        <div>
-            <div>
-                <h3>ADM</h3>
-                <p>
-                    Email: yan@email.com
-                </p>
-                <p>
-                    Senha: 123
-                </p>
-            </div>
-            <div>
-                <h3>Leitor</h3>
-                <p>
-                    Email: jonhdoe@email.com
-                </p>
-                <p>
-                    Senha: 123
-                </p>
-            </div>
-        </div>
+        
       </>
 
   )
