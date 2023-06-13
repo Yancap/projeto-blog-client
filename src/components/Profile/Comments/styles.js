@@ -2,11 +2,14 @@ import styled from "styled-components";
 
 
 export const Container = styled.article`
-    display: grid;
-    grid-template-columns:  8fr 2fr;
+    display: flex;
+    justify-content: space-between;
     width: 100%;
     background-color: #ededed;
     padding: .5rem 1rem;
+    @media screen and (max-width: 400px){
+        padding: .5rem;
+    }
 `
 
 export const Content = styled.div`
@@ -16,19 +19,13 @@ export const Content = styled.div`
     h3{
         font-size: 1.25rem;
     }
-    span{
-        font-size: .9rem;
-        max-width: 60ch;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        cursor: pointer;
-        &:hover{
-            text-decoration: underline;
-        }
+    div.time{
+        display: flex;
+        gap: .25rem;
         svg{
+            flex-shrink: 0;
             display: inline-block;
-            height: .9rem;
+            height: 1rem;
             width: auto;
             margin-right: .35rem;
             top: 50%;
@@ -38,6 +35,18 @@ export const Content = styled.div`
         path{
             fill: #282773;
         }
+    }
+    span{
+        font-size: .9rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+        
         color: #7C7ABF;
         font-family: var(--font-title);
         font-weight: 700;
@@ -45,6 +54,10 @@ export const Content = styled.div`
     p{
         font-size: .9rem;
         color: #383838;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
     }
 `
 

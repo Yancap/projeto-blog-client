@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.main`
+export const Container = styled.section`
     margin:2rem 0 ;
     padding: 2rem .5rem 2rem 2rem;
     background: var(--background-primary);
@@ -9,6 +9,10 @@ export const Container = styled.main`
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    @media screen and (max-width: 500px){
+        width: 100%;
+        padding: 2rem 0rem 2rem 1rem;
+    }
 `
 
 export const ContentProfile = styled.section`
@@ -30,10 +34,14 @@ export const ContentProfile = styled.section`
             background: #ddd;
         }
         &:hover{
-        form{
-            visibility: visible;
+            form{
+                visibility: visible;
+            }
         }
-    }
+        @media screen and (max-width: 680px){
+            justify-self: center;
+        
+        }
     }
 
     div.user{
@@ -41,6 +49,7 @@ export const ContentProfile = styled.section`
         flex-direction: column;
         align-items: flex-start;
         grid-column: span 2 / span 3;
+        gap: .5rem;
         h1{
             font-family: 'Tinos';
             font-weight: 700;
@@ -63,10 +72,16 @@ export const ContentProfile = styled.section`
             border-radius: .2rem;
             font-weight: 700;
             color: #282773;
-            margin-top: 1rem;
             transition: filter .25s;
             &:hover{
                 filter: brightness(.9);
+            }
+        }
+        @media screen and (max-width: 480px){
+            align-items: center;
+            gap: 1rem;
+            h1{
+                flex-direction: column;
             }
         }
     }
@@ -84,6 +99,10 @@ export const ContentProfile = styled.section`
         &:hover{
             filter: brightness(1);
         }
+    }
+    @media screen and (max-width: 680px){
+        grid-template-columns: 1fr;
+        
     }
 `
 export const AddAvatar = styled.form`
@@ -147,4 +166,5 @@ export const ContentDeeds = styled.section`
         align-items: flex-start;
         gap: 1.2rem;
     }
+    
 `

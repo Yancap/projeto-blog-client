@@ -51,7 +51,7 @@ export const Main = ({ articles, comments}) => {
               </AddAvatar>
           </div>
           <div className='user'>
-            <h1 >
+            <h1>
               {user.name}
               <button onClick={handleLogout}>
                 Sair
@@ -67,7 +67,6 @@ export const Main = ({ articles, comments}) => {
               user.hierarchy === 'reader' ? null : <button onClick={() => navigate('/profile/create-article')}>Criar Artigo</button>
             }
           </div>
-          
           
         </ContentProfile>
         {user.hierarchy !== 'reader' ? 

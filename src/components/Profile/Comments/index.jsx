@@ -34,11 +34,15 @@ export const Comments = ({comment}) => {
           {comment.text}
         </p>
         }
-        <span onClick={() => navigate('/article/' + article?.id)}>
+        <div className='time'>
           <Clock />
+          <span onClick={() => navigate('/article/' + article?.id)}>
+          
           {new Intl.DateTimeFormat('pt-BR').format(new Date(comment['created_at']))} - 
           {article?.title}
         </span>
+        </div>
+        
       </Content>
       <Settings>
         <button className='delete' onClick={handleDelete}>

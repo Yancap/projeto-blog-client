@@ -10,6 +10,9 @@ export const Container = styled.article`
     &:hover{
         background: #e0e0e0;
     }
+    @media screen and (max-width: 680px){
+        grid-template-columns: 1fr;
+    }
 `
 export const Image = styled.div`
     background: #ccc;
@@ -25,6 +28,11 @@ export const Image = styled.div`
         min-height: 100%;
         height: 100%;
         width: auto;
+    }
+    @media screen and (max-width: 680px){
+        width: 100%;
+        height: 30vw;
+        max-height: 18rem;
     }
 `
 
@@ -63,6 +71,10 @@ export const Content = styled.div`
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
     }
+    @media screen and (max-width: 680px){
+        gap: .5rem;
+        margin-bottom: .75rem;
+    }
 `
 
 export const Settings = styled.div`
@@ -90,6 +102,13 @@ export const Settings = styled.div`
     }
     button.edit{
         background: var(--yellow);
+    }
+    @media screen and (max-width: 680px){
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        button{
+            padding: .5rem 0;
+        }
     }
 `
 export const ModalDelete = styled.div`
