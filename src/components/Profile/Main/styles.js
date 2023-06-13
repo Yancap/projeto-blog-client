@@ -11,7 +11,9 @@ export const Container = styled.section`
     gap: 2rem;
     @media screen and (max-width: 500px){
         width: 100%;
-        padding: 2rem 0rem 2rem 1rem;
+        padding: 2rem .5rem;
+        border: 0 none;
+        align-items: center;
     }
 `
 
@@ -102,7 +104,10 @@ export const ContentProfile = styled.section`
     }
     @media screen and (max-width: 680px){
         grid-template-columns: 1fr;
-        
+    }
+    @media screen and (max-width: 500px){
+        grid-template-columns: 1fr;
+        justify-content: center;
     }
 `
 export const AddAvatar = styled.form`
